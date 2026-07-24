@@ -1,0 +1,108 @@
+@use '@fkui/theme-default';
+@use '@fkui/design';
+
+html,
+body {
+  font-family: var(--f-font-family, sans-serif);
+}
+
+body {
+  margin: 0;
+}
+
+.vue-flow {
+  font-family: inherit;
+}
+
+/* Shared node styling */
+.schema-node,
+.enum-node {
+  font-family: inherit;
+  background: var(--fkds-color-background-primary-default, #f4f4f4);
+  border: 1px solid var(--fkds-color-border-neutral-default, #888);
+  border-radius: 8px;
+  min-width: 220px;
+  overflow: hidden;
+}
+
+/* Header bars */
+.schema-node-header,
+.enum-header {
+  height: 10px;
+  background: var(--fkds-color-action-background-primary-default);
+}
+
+/* Content spacing */
+.schema-node-content,
+.enum-node-content {
+  padding: 10px;
+}
+
+/* Remove Vue Flow's default node styling */
+.vue-flow__node-schema-node,
+.vue-flow__node-enum-node {
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+/* Toolbar */
+.vue-flow__node-toolbar {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+
+  background-color: var(--fkds-color-background-primary-default, #f4f4f4);
+
+  padding: 8px;
+  border-radius: 8px;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+
+  height: fit-content;
+  line-height: 1;
+}
+
+.vue-flow__node-toolbar button {
+  margin: 0;
+  padding: 4px 8px;
+  line-height: 1;
+}
+
+/* Schema fields */
+.property-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.property-row input {
+  flex: 1;
+}
+
+.property-row select {
+  width: 120px;
+}
+
+/* Labels */
+.editable-label {
+  margin: 0 0 10px;
+  cursor: text;
+}
+
+.label-input {
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 1.17em;
+  font-weight: bold;
+}
+
+/* Enum values */
+.enum-value {
+  padding: 5px 0;
+  border-top: 1px solid var(--fkds-color-border-neutral-default, #ddd);
+}
+
+.enum-value input {
+  width: 100%;
+}
