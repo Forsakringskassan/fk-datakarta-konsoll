@@ -7,6 +7,7 @@ export interface SchemaNodeProperty {
 export interface SchemaNodeData {
   kind: 'schema'
   label: string
+  description?: string
   properties: SchemaNodeProperty[]
   toolbarVisible?: boolean
 }
@@ -14,6 +15,7 @@ export interface SchemaNodeData {
 export interface EnumerationNodeData {
   kind: 'enumeration'
   label: string
+  description?: string
   values: EnumValue[]
   toolbarVisible?: boolean
 }

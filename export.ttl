@@ -1,0 +1,133 @@
+# core domain models
+@prefix upper: <https://data.fk.se/upper#> .
+@prefix : <https://data.fk.se/onto/#> .
+@prefix dpv: <https://w3id.org/dpv#> .
+@prefix mwi: <https://rdf.netflix.net/ns/mwi#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix uda: <https://rdf.netflix.net/ns/uda#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:
+    a upper:DomainModel ;
+    upper:domain "" ;
+    owl:imports uda: ;
+.
+
+:Yrkande
+    a upper:DirectClass ;
+    upper:keyedOn ( :Yrkande ) ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :avserBeslut ;
+    upper:property :avserSakfragaStallningstagande ;
+    upper:property :rollerIYrkandet ;
+    upper:property :hanterasIHandlaggningar ;
+    upper:property :avserBesvarAvBeslut ;
+    upper:property :yrkandeStatus ;
+    upper:property :avsikt ;
+    upper:property :yrkandeDatum ;
+    upper:property :avserErbjudande ;
+    upper:property :from ;
+    upper:property :tom ;
+    upper:label "Yrkande"@en ;
+    upper:description "Yrkande."@en ;
+.
+
+:Beslut
+    a upper:DirectClass ;
+    upper:keyedOn ( :Beslut ) ;
+    upper:label "Beslut"@en ;
+.
+
+:RollIYrkande
+    a upper:DirectClass ;
+    upper:keyedOn ( :RollIYrkande ) ;
+    upper:label "RollIYrkande"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:avserBeslut
+    a upper:Relationship ;
+    upper:class :Beslut ;
+    upper:label "avserBeslut"@en ;
+.
+
+:avserSakfragaStallningstagande
+    a upper:Relationship ;
+    upper:class :SakfragaStallningstagande ;
+    upper:label "avserSakfragaStallningstagande"@en ;
+.
+
+:rollerIYrkandet
+    a upper:Relationship ;
+    upper:class :RollIYrkande ;
+    upper:label "rollerIYrkandet"@en ;
+.
+
+:hanterasIHandlaggningar
+    a upper:Relationship ;
+    upper:class :Handlaggning ;
+    upper:label "hanterasIHandlaggningar"@en ;
+.
+
+:avserBesvarAvBeslut
+    a upper:Relationship ;
+    upper:class :Beslut ;
+    upper:label "avserBesvarAvBeslut"@en ;
+.
+
+:yrkandeStatus
+    a upper:Relationship ;
+    upper:class :Yrkandestatus ;
+    upper:label "yrkandeStatus"@en ;
+.
+
+:avsikt
+    a upper:Relationship ;
+    upper:class :Avsiktstyp ;
+    upper:label "avsikt"@en ;
+.
+
+:yrkandeDatum
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "yrkandeDatum"@en ;
+.
+
+:avserErbjudande
+    a upper:Relationship ;
+    upper:class :Erbjudande ;
+    upper:label "avserErbjudande"@en ;
+.
+
+:from
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "from"@en ;
+.
+
+:tom
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "tom"@en ;
+.
+
+:Yrkandestatus
+    a upper:Enumeration ;
+    upper:oneOf (
+        :Frukter_ÄPPLE
+    ) ;
+    upper:label "Yrkandestatus"@en ;
+.

@@ -1,6 +1,6 @@
 import { Store, DataFactory, Parser } from 'n3'
 import type { Node, Edge } from '@vue-flow/core'
-import type { SchemaNodeData } from './types'
+import type { EnumerationNodeData, SchemaNodeData } from './types'
 
 const { namedNode } = DataFactory
 
@@ -19,7 +19,7 @@ interface PropertyInfo {
 
 export interface ParsedModel {
   domainName: string
-  nodes: Node<SchemaNodeData>[]
+  nodes: Node<SchemaNodeData | EnumerationNodeData>[]
   edges: Edge[]
 }
 
@@ -101,7 +101,6 @@ export function parseModel(ttl: string): ParsedModel {
         if (target) {
           edges.push({
             id: `${directClass.value}-${target}`,
-            type: 'smoothstep',
             source: directClass.value,
             target,
             label,
@@ -125,6 +124,8 @@ export function parseModel(ttl: string): ParsedModel {
       },
       data: {
         label: classLabel,
+        description: 'test',
+        kind: 'schema',
         properties,
       },
     })

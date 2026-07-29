@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { FLogo, FPageHeader, FPageLayout, FResizePane, registerLayout } from '@fkui/vue'
-import { AppToolbar, SchemaDetails, AppContextBar } from './components'
+import { AppToolbar, SchemaDetails, AppContextBar } from '@/components'
 import { useNodeStore } from '@/stores/node'
 
 const nodeStore = useNodeStore()
@@ -75,10 +75,6 @@ registerLayout({
         initial="200px"
         v-if="nodeStore.selectedNode"
       >
-        <div>
-          {{ nodeStore.selectedNode }}
-        </div>
-
         <schema-details />
       </f-resize-pane>
     </template>

@@ -94,7 +94,6 @@ async function onConnect(connection) {
 
     addEdges({
       id: `edge-${Date.now()}`,
-      type: 'smoothstep',
       source: connection.source,
       target: connection.target,
       label: result.label,
@@ -138,13 +137,13 @@ function openFilePicker() {
       @change="openFile"
     />
 
-    <h2 v-if="domainName">Domain: {{ domainName }}</h2>
+    <h2>Domain: "{{ domainName }}"</h2>
 
     <div class="flow-container">
       <VueFlow
         :nodes="nodes"
         :edges="edges"
-        :min-zoom="0.01"
+        :min-zoom="0.1"
         @nodes-initialized="layoutGraph"
         @node-click="onNodeClick"
         @connect="onConnect"

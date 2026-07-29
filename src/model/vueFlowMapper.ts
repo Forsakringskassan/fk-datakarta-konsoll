@@ -1,11 +1,11 @@
 import type { Node, Edge } from '@vue-flow/core'
 
-import type { SchemaNodeData } from '@/model/types'
+import type { EnumerationNodeData, SchemaNodeData } from '@/model/types'
 import type { ParsedModel } from '@/model/parser'
 import { UpperRepository } from '@/model/upperRepository'
 
 export function buildVueFlowModel(repository: UpperRepository): ParsedModel {
-  const nodes: Node<SchemaNodeData>[] = []
+  const nodes: Node<SchemaNodeData | EnumerationNodeData>[] = []
   const edges: Edge[] = []
 
   for (const cls of repository.getDirectClasses()) {
@@ -14,7 +14,9 @@ export function buildVueFlowModel(repository: UpperRepository): ParsedModel {
       type: 'schema-node',
       position: { x: 0, y: 0 },
       data: {
+        kind: 'schema',
         label: cls.label,
+        description: cls.description,
         properties: cls.properties.map((property) => ({
           name: property.label,
           type:
@@ -32,7 +34,6 @@ export function buildVueFlowModel(repository: UpperRepository): ParsedModel {
           id: `${cls.id}-${property.targetClass}`,
           source: cls.id,
           target: property.targetClass,
-          type: 'smoothstep',
           label: property.label,
         })
       }
@@ -45,7 +46,9 @@ export function buildVueFlowModel(repository: UpperRepository): ParsedModel {
       type: 'enumeration-node',
       position: { x: 0, y: 0 },
       data: {
+        kind: 'enumeration',
         label: enumeration.label,
+        description: enumeration.description,
         values: enumeration.values,
       },
     })

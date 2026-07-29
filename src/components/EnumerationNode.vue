@@ -103,8 +103,6 @@ function cancelEditing() {
       </f-button>
     </NodeToolbar>
 
-    <Handle id="source" type="source" :position="Position.Right" />
-
     <Handle id="target" type="target" :position="Position.Left" />
   </div>
 </template>
