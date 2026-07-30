@@ -1,0 +1,2974 @@
+# core domain models
+@prefix upper: <https://data.fk.se/upper#> .
+@prefix : <https://data.fk.se/onto/#> .
+@prefix mwi: <https://rdf.netflix.net/ns/mwi#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix uda: <https://rdf.netflix.net/ns/uda#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:
+    a upper:DomainModel ;
+    upper:domain "" ;
+    owl:imports uda: ;
+.
+
+:Behorighetsgrupper
+    a upper:DirectClass ;
+    upper:property :behorighetsgrupp ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:label "Behorighetsgrupper"@en ;
+.
+
+:Behorighetsroller
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :behorighetsroll ;
+    upper:property :tillhorBehorighetsgrupp ;
+    upper:label "Behorighetsroller"@en ;
+.
+
+:MimerModelsException
+    a upper:DirectClass ;
+    upper:property :serialVersionUID ;
+    upper:label "MimerModelsException"@en ;
+.
+
+:Tjansteanteckning
+    a upper:DirectClass ;
+    upper:property :anteckning ;
+    upper:property :rubrik ;
+    upper:label "Tjansteanteckning"@en ;
+.
+
+:Basuppgift
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :skapadTS ;
+    upper:property :utforare ;
+    upper:property :utforsIHandlaggning ;
+    upper:label "Basuppgift"@en ;
+.
+
+:Uppgift
+    a upper:DirectClass ;
+    upper:property :aktivitetID ;
+    upper:property :avserUppgiftsspecifikation ;
+    upper:property :fssaInfo ;
+    upper:property :planeradTillTS ;
+    upper:property :resultat ;
+    upper:property :underlag ;
+    upper:property :uppgiftsstatus ;
+    upper:property :utfall ;
+    upper:property :utfordTS ;
+    upper:label "Uppgift"@en ;
+.
+
+:Uppgiftsstatustyper
+    a upper:DirectClass ;
+    upper:label "Uppgiftsstatustyper"@en ;
+.
+
+:AbstraktProcessbeskrivning
+    a upper:DirectClass ;
+    upper:property :avserHandlaggningsspecifikation ;
+    upper:property :beskrivning ;
+    upper:property :bpmnUrl ;
+    upper:property :harAktiviteter ;
+    upper:property :id ;
+    upper:property :namn ;
+    upper:label "AbstraktProcessbeskrivning"@en ;
+.
+
+:InkomstAvKapital
+    a upper:DirectClass ;
+    upper:label "InkomstAvKapital"@en ;
+.
+
+:Inkomst
+    a upper:DirectClass ;
+    upper:property :avserFysiskPerson ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:label "Inkomst"@en ;
+.
+
+:InkomstAvNaringsverksamhet
+    a upper:DirectClass ;
+    upper:label "InkomstAvNaringsverksamhet"@en ;
+.
+
+:InkomstAvTjanst
+    a upper:DirectClass ;
+    upper:property :avserAnstallningar ;
+    upper:property :avserSpecificeradeErsattningsperioder ;
+    upper:label "InkomstAvTjanst"@en ;
+.
+
+:AvtaladLon
+    a upper:DirectClass ;
+    upper:property :gallerForAnstallning ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:label "AvtaladLon"@en ;
+.
+
+:AvtaladLoneforman
+    a upper:DirectClass ;
+    upper:property :gallerForAnstallning ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :typAvLoneforman ;
+    upper:label "AvtaladLoneforman"@en ;
+.
+
+:Bisyssla
+    a upper:DirectClass ;
+    upper:label "Bisyssla"@en ;
+.
+
+:Anstallning
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :anstallninggradProcent ;
+    upper:property :avserFysiskPerson ;
+    upper:property :avserRoll ;
+    upper:property :forstaAnstallningsdag ;
+    upper:property :harAvtalMedOrganisation ;
+    upper:property :sistaAnstallningsdag ;
+    upper:label "Anstallning"@en ;
+.
+
+:Ersattningsrad
+    a upper:DirectClass ;
+    upper:property :belopp ;
+    upper:property :ersattningsradTyp ;
+    upper:property :from ;
+    upper:property :id ;
+    upper:property :tillhorSpecificeradErsattningsperiod ;
+    upper:property :tom ;
+    upper:property :version ;
+    upper:label "Ersattningsrad"@en ;
+.
+
+:UtbetaldAllmanErsattningsrad
+    a upper:DirectClass ;
+    upper:property :belopp ;
+    upper:property :from ;
+    upper:property :id ;
+    upper:property :tom ;
+    upper:property :version ;
+    upper:property :ersattningstyp ;
+    upper:property :tillhorUtbetaldAllmanErsattning ;
+    upper:label "UtbetaldAllmanErsattningsrad"@en ;
+.
+
+:Funktionar
+    a upper:DirectClass ;
+    upper:property :arPerson ;
+    upper:property :harFunktionIOrganisation ;
+    upper:property :id ;
+    upper:property :juridiskFormkod ;
+    upper:property :organisationsFormkod ;
+    upper:property :organisationsIdentitet ;
+    upper:property :version ;
+    upper:label "Funktionar"@en ;
+.
+
+:Folkbokforingsadress
+    a upper:DirectClass ;
+    upper:property :careOf ;
+    upper:property :postnummer ;
+    upper:property :postort ;
+    upper:property :utdelningsadress1 ;
+    upper:property :utdelningsadress2 ;
+    upper:label "Folkbokforingsadress"@en ;
+.
+
+:Adress
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:label "Adress"@en ;
+.
+
+:ParagrafArtikel
+    a upper:DirectClass ;
+    upper:property :avdelningNamn ;
+    upper:property :paragraBeskrivning ;
+    upper:property :paragrafArtikelId ;
+    upper:property :paragrafArtikelNamn ;
+    upper:property :paragrafGiltigFrom ;
+    upper:property :paragrafGiltigTom ;
+    upper:property :referensTillAnnanForfattning ;
+    upper:property :rubrik ;
+    upper:property :underavdelningNamn ;
+    upper:property :underrubrik ;
+    upper:label "ParagrafArtikel"@en ;
+.
+
+:Lagrum
+    a upper:DirectClass ;
+    upper:property :individId ;
+    upper:label "Lagrum"@en ;
+.
+
+:Punkt
+    a upper:DirectClass ;
+    upper:property :referensTillAnnanForfattning ;
+    upper:property :punktBeskrivning ;
+    upper:property :punktSekvens ;
+    upper:label "Punkt"@en ;
+.
+
+:Stycke
+    a upper:DirectClass ;
+    upper:property :referensTillAnnanForfattning ;
+    upper:property :styckeBeskrivning ;
+    upper:label "Stycke"@en ;
+.
+
+:Betalningsbelopp
+    a upper:DirectClass ;
+    upper:label "Betalningsbelopp"@en ;
+.
+
+:SakfragaIHandlaggningen
+    a upper:DirectClass ;
+    upper:property :avserSakfraga ;
+    upper:label "SakfragaIHandlaggningen"@en ;
+.
+
+:SjukpenninggrundandeInkomst
+    a upper:DirectClass ;
+    upper:property :SFBInkomstBelopp ;
+    upper:property :SFBInkomstDatum ;
+    upper:property :SFBInkomstFrom ;
+    upper:property :SFBInkomstTom ;
+    upper:property :SFBInkomstTyp ;
+    upper:property :avserInkomst ;
+    upper:property :periodisering ;
+    upper:label "SjukpenninggrundandeInkomst"@en ;
+.
+
+:Bidragssparr
+    a upper:DirectClass ;
+    upper:property :anledningIngenBidragssparr ;
+    upper:property :formanssparr ;
+    upper:property :grundForBidragssparrutredning ;
+    upper:label "Bidragssparr"@en ;
+.
+
+:RattenTillPeriod
+    a upper:DirectClass ;
+    upper:property :omfattningIProcent ;
+    upper:label "RattenTillPeriod"@en ;
+.
+
+:StallningstagenBosattningOchEllerArbeteISverige
+    a upper:DirectClass ;
+    upper:property :arbetar ;
+    upper:property :bosatt ;
+    upper:label "StallningstagenBosattningOchEllerArbeteISverige"@en ;
+.
+
+:StallningstagandeIHandlaggningen
+    a upper:DirectClass ;
+    upper:property :stallningstagande ;
+    upper:label "StallningstagandeIHandlaggningen"@en ;
+.
+
+:StallningstagenInkomst
+    a upper:DirectClass ;
+    upper:property :avserInkomst ;
+    upper:property :bedomdInkomstBelopp ;
+    upper:property :bedomdInkomstDatum ;
+    upper:property :bedomdInkomstFrom ;
+    upper:property :bedomdInkomstTom ;
+    upper:property :bedomdInkomstTyp ;
+    upper:property :periodisering ;
+    upper:label "StallningstagenInkomst"@en ;
+.
+
+:StallningstagenKostnad
+    a upper:DirectClass ;
+    upper:property :periodisering ;
+    upper:property :bedomdIKostnadTyp ;
+    upper:property :bedomdKonstnadBelopp ;
+    upper:property :bedomdKostnadDatum ;
+    upper:property :bedomdKostnadFrom ;
+    upper:property :bedomdKostnadTom ;
+    upper:label "StallningstagenKostnad"@en ;
+.
+
+:StallningstagenKvalificeringEllerUndantagenKvalificeringForVissaBosattningsbaseradeFormaner
+    a upper:DirectClass ;
+    upper:property :undantagenKravPaKvalificering ;
+    upper:property :uppfylltKravPaKvalificering ;
+    upper:label "StallningstagenKvalificeringEllerUndantagenKvalificeringForVissaBosattningsbaseradeFormaner"@en ;
+.
+
+:PlatstypForTjanstgoringITotalforsvaret
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :platstyp ;
+    upper:property :version ;
+    upper:label "PlatstypForTjanstgoringITotalforsvaret"@en ;
+.
+
+:TjanstgoringstypITotalforsvaret
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :tjanstgoringstyp ;
+    upper:label "TjanstgoringstypITotalforsvaret"@en ;
+.
+
+:Yrkande
+    a upper:DirectClass ;
+    upper:property :avserBeslut ;
+    upper:property :avserBesvarAvBeslut ;
+    upper:property :avserErbjudande ;
+    upper:property :avserSakfragaStallningstagande ;
+    upper:property :avsikt ;
+    upper:property :from ;
+    upper:property :hanterasIHandlaggningar ;
+    upper:property :id ;
+    upper:property :rollerIYrkandet ;
+    upper:property :tom ;
+    upper:property :version ;
+    upper:property :yrkandeDatum ;
+    upper:property :yrkandeStatus ;
+    upper:label "Yrkande"@en ;
+.
+
+:RollIResultatet
+    a upper:DirectClass ;
+    upper:property :avserPersontyp ;
+    upper:property :avserSakfragaStallningstagande ;
+    upper:property :id ;
+    upper:property :individ ;
+    upper:property :yrkanderoll ;
+    upper:label "RollIResultatet"@en ;
+.
+
+:ErbjudnaDatamangder
+    a upper:DirectClass ;
+    upper:property :beskrivning ;
+    upper:property :erbjudnaDatamangder ;
+    upper:property :id ;
+    upper:property :namn ;
+    upper:property :tillhorErbjudanDatamangdsgrupp ;
+    upper:property :version ;
+    upper:label "ErbjudnaDatamangder"@en ;
+.
+
+:Team
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :namn ;
+    upper:property :version ;
+    upper:property :kontaktAnvandare ;
+    upper:property :teamtyp ;
+    upper:property :tillhorOrganisationsenhet ;
+    upper:label "Team"@en ;
+.
+
+:Teamtyp
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :teamtyp ;
+    upper:label "Teamtyp"@en ;
+.
+
+:Organisationsenhet
+    a upper:DirectClass ;
+    upper:property :namn ;
+    upper:property :tillhorOrganisation ;
+    upper:property :tillhorOrganisationsenhet ;
+    upper:property :id ;
+    upper:property :kod ;
+    upper:property :version ;
+    upper:label "Organisationsenhet"@en ;
+.
+
+:Yrkesroll
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :yrkesroll ;
+    upper:label "Yrkesroll"@en ;
+.
+
+:IDTyp
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :avserOrganisation ;
+    upper:property :idTyp ;
+    upper:property :varde ;
+    upper:label "IDTyp"@en ;
+.
+
+:Anvandare
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :avserOrganisationsenhet ;
+    upper:property :harBehorighetsroller ;
+    upper:property :harErbjudnaDatamangder ;
+    upper:property :harYrkesroll ;
+    upper:property :idTyp ;
+    upper:property :tillhorBehorighetsgrupper ;
+    upper:property :tillhorErbjudanDatamangdsgrupper ;
+    upper:property :tillhorTeam ;
+    upper:label "Anvandare"@en ;
+.
+
+:ErbjudanDatamangdsgrupper
+    a upper:DirectClass ;
+    upper:property :beskrivning ;
+    upper:property :id ;
+    upper:property :namn ;
+    upper:property :version ;
+    upper:property :erbjudnaDatamangdsgrupper ;
+    upper:label "ErbjudanDatamangdsgrupper"@en ;
+.
+
+:Formanstyp
+    a upper:DirectClass ;
+    upper:property :formanstyp ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:label "Formanstyp"@en ;
+.
+
+:Erbjudande
+    a upper:DirectClass ;
+    upper:property :beskrivning ;
+    upper:property :erbjudande ;
+    upper:property :id ;
+    upper:property :ingarIForman ;
+    upper:property :version ;
+    upper:label "Erbjudande"@en ;
+.
+
+:Erbjudandetyp
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :erbjudandenamn ;
+    upper:label "Erbjudandetyp"@en ;
+.
+
+:Forman
+    a upper:DirectClass ;
+    upper:property :formanstyp ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :beskrivning ;
+    upper:property :produktnamn ;
+    upper:property :tillhorOrganisationsenhet ;
+    upper:label "Forman"@en ;
+.
+
+:Sakfraga
+    a upper:DirectClass ;
+    upper:property :beskrivning ;
+    upper:property :id ;
+    upper:property :ingarIFormaner ;
+    upper:property :sakfragetyper ;
+    upper:property :sakfragetypkategori ;
+    upper:property :version ;
+    upper:label "Sakfraga"@en ;
+.
+
+:Sakfragetyper
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :anknytandeSakfraga ;
+    upper:property :rattenTillSakfraga ;
+    upper:label "Sakfragetyper"@en ;
+.
+
+:Sakfragetypkategori
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :sakfragetypkategori ;
+    upper:property :version ;
+    upper:label "Sakfragetypkategori"@en ;
+.
+
+:HandlaggningsIDTyp
+    a upper:DirectClass ;
+    upper:property :beloppstyp ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:label "HandlaggningsIDTyp"@en ;
+.
+
+:Uppgiftsspecifikation
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :applikationsId ;
+    upper:property :avserRegler ;
+    upper:property :behorighetsroll ;
+    upper:property :guiURL ;
+    upper:property :namn ;
+    upper:property :uppgiftsbeskrivning ;
+    upper:property :verksamhetslogik ;
+    upper:label "Uppgiftsspecifikation"@en ;
+.
+
+:Handlaggningsspecifikation
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :anvanderUppgiftsspecifikationer ;
+    upper:property :beskrivning ;
+    upper:property :bpmnUrl ;
+    upper:property :namn ;
+    upper:label "Handlaggningsspecifikation"@en ;
+.
+
+:FSSAInformationstyp
+    a upper:DirectClass ;
+    upper:property :fssaInfo ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:label "FSSAInformationstyp"@en ;
+.
+
+:Informationsobjekt
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:label "Informationsobjekt"@en ;
+.
+
+:Regelutfall
+    a upper:DirectClass ;
+    upper:property :typ ;
+    upper:label "Regelutfall"@en ;
+.
+
+:Uppgiftsstatustyp
+    a upper:DirectClass ;
+    upper:property :uppgiftsstatus ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:label "Uppgiftsstatustyp"@en ;
+.
+
+:Regel
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :lagrum ;
+    upper:property :objektId ;
+    upper:property :version ;
+    upper:label "Regel"@en ;
+.
+
+:Uppgiftsdata
+    a upper:DirectClass ;
+    upper:property :avserInformationsobjekt ;
+    upper:property :informationsobjektsId ;
+    upper:property :informationsobjektsVersion ;
+    upper:label "Uppgiftsdata"@en ;
+.
+
+:Regelutfallstyp
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :regelutfall ;
+    upper:property :version ;
+    upper:label "Regelutfallstyp"@en ;
+.
+
+:Handlaggning
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :avserBesvarAvAnvandare ;
+    upper:property :avserHandlaggningsspecifikation ;
+    upper:property :avslutadTS ;
+    upper:property :handlaggningsIdTyp ;
+    upper:property :handlaggningsIdVarde ;
+    upper:property :skapadTS ;
+    upper:label "Handlaggning"@en ;
+.
+
+:Verksamhetslogiktyper
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :verksamhetslogik ;
+    upper:label "Verksamhetslogiktyper"@en ;
+.
+
+:Aktivitet
+    a upper:DirectClass ;
+    upper:property :beskrivning ;
+    upper:property :namn ;
+    upper:property :aktivitetID ;
+    upper:label "Aktivitet"@en ;
+.
+
+:FysiskPerson
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :adress ;
+    upper:property :efternamn ;
+    upper:property :fornamn ;
+    upper:property :kon ;
+    upper:label "FysiskPerson"@en ;
+.
+
+:SpecificeradErsattningsperiod
+    a upper:DirectClass ;
+    upper:property :from ;
+    upper:property :id ;
+    upper:property :tom ;
+    upper:property :version ;
+    upper:property :gallerForAnstallning ;
+    upper:property :gallerForUtbetaldAllmanErsattning ;
+    upper:property :ersattningsSummaForPeriod ;
+    upper:label "SpecificeradErsattningsperiod"@en ;
+.
+
+:AvtaladLoneformanstyp
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :loneforman ;
+    upper:label "AvtaladLoneformanstyp"@en ;
+.
+
+:Organisation
+    a upper:DirectClass ;
+    upper:property :juridiskFormkod ;
+    upper:property :organisationsFormkod ;
+    upper:property :organisationsIdentitetskod ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:label "Organisation"@en ;
+.
+
+:ErsattningsradTyp
+    a upper:DirectClass ;
+    upper:property :ersattningsradTyp ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:label "ErsattningsradTyp"@en ;
+.
+
+:Ersattningstyp
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :ersattningstyp ;
+    upper:label "Ersattningstyp"@en ;
+.
+
+:UtbetaldAllmanErsattning
+    a upper:DirectClass ;
+    upper:property :from ;
+    upper:property :id ;
+    upper:property :tom ;
+    upper:property :version ;
+    upper:property :ersattningsSummaForPeriod ;
+    upper:label "UtbetaldAllmanErsattning"@en ;
+.
+
+:JuridiskFormkod
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :kod ;
+    upper:property :version ;
+    upper:label "JuridiskFormkod"@en ;
+.
+
+:OrganisationsForm
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :kod ;
+    upper:property :version ;
+    upper:label "OrganisationsForm"@en ;
+.
+
+:OrganisationsIdentitet
+    a upper:DirectClass ;
+    upper:property :varde ;
+    upper:property :id ;
+    upper:property :kod ;
+    upper:property :version ;
+    upper:label "OrganisationsIdentitet"@en ;
+.
+
+:Individ
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:label "Individ"@en ;
+.
+
+:Persontyp
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :arEnIndivid ;
+    upper:property :fysiskPerson ;
+    upper:property :idTyp ;
+    upper:property :juridiskPersonForOrganisation ;
+    upper:label "Persontyp"@en ;
+.
+
+:Yrkandestatus
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :status ;
+    upper:label "Yrkandestatus"@en ;
+.
+
+:SFBInkomsttyp
+    a upper:DirectClass ;
+    upper:property :SFBInkomstTyp ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:label "SFBInkomsttyp"@en ;
+.
+
+:Periodisering
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :periodisering ;
+    upper:label "Periodisering"@en ;
+.
+
+:AnledningIngenBidragssparr
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :ingenSparrAnledning ;
+    upper:property :version ;
+    upper:label "AnledningIngenBidragssparr"@en ;
+.
+
+:GrundForBidragssparrutredning
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :bidragssparrgrund ;
+    upper:label "GrundForBidragssparrutredning"@en ;
+.
+
+:Beloppstyper
+    a upper:DirectClass ;
+    upper:property :beloppstyper ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:label "Beloppstyper"@en ;
+.
+
+:Berakningsgrund
+    a upper:DirectClass ;
+    upper:property :berakningsgrunder ;
+    upper:label "Berakningsgrund"@en ;
+.
+
+:Ersattning
+    a upper:DirectClass ;
+    upper:property :berakningsgrunder ;
+    upper:property :beloppsTyp ;
+    upper:property :ersattningsBelopp ;
+    upper:property :omfattningProcent ;
+    upper:property :periodisering ;
+    upper:property :samordnasMedErsattningar ;
+    upper:label "Ersattning"@en ;
+.
+
+:Stallningstagande
+    a upper:DirectClass ;
+    upper:property :beskrivning ;
+    upper:property :id ;
+    upper:property :stallningstagandetyp ;
+    upper:property :version ;
+    upper:label "Stallningstagande"@en ;
+.
+
+:Stallningstagandetyp
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :stallningstagandetyp ;
+    upper:property :version ;
+    upper:label "Stallningstagandetyp"@en ;
+.
+
+:StallningstagnaInkomsttyper
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :bedomdInkomst ;
+    upper:label "StallningstagnaInkomsttyper"@en ;
+.
+
+:StallningstagnaKostnadstyper
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :bedomdKostnad ;
+    upper:label "StallningstagnaKostnadstyper"@en ;
+.
+
+:Berakningsgrunder
+    a upper:DirectClass ;
+    upper:property :berakningsgrunder ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:label "Berakningsgrunder"@en ;
+.
+
+:PlikttypForTjanstgoringITotalforsvaret
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :platstyp ;
+    upper:property :version ;
+    upper:label "PlikttypForTjanstgoringITotalforsvaret"@en ;
+.
+
+:TjanstgoringITotalforsvaret
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :avserOrganisationsenhet ;
+    upper:property :avserPerson ;
+    upper:property :plikttypForTjanstgoringITotalforsvaret ;
+    upper:property :tjanstgoringFrom ;
+    upper:property :tjanstgoringITotalforsvaret ;
+    upper:property :tjanstgoringTom ;
+    upper:property :tjanstgoringsstatusForTjanstgoringITotalforsvaret ;
+    upper:label "TjanstgoringITotalforsvaret"@en ;
+.
+
+:TjanstgoringsstatusForTjanstgoringITotalforsvaret
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :tjanstgoringsstatusTyp ;
+    upper:label "TjanstgoringsstatusForTjanstgoringITotalforsvaret"@en ;
+.
+
+:Avsiktstyp
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :avsiktstyp ;
+    upper:label "Avsiktstyp"@en ;
+.
+
+:Beslut
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :beslutsDatum ;
+    upper:property :beslutsfattare ;
+    upper:property :beslutsrader ;
+    upper:label "Beslut"@en ;
+.
+
+:SakfragaStallningstagande
+    a upper:DirectClass ;
+    upper:property :avserPersontyper ;
+    upper:property :avslagPaGrundAvRegler ;
+    upper:property :faststallsForYrkande ;
+    upper:property :from ;
+    upper:property :godkandRegler ;
+    upper:property :id ;
+    upper:property :tom ;
+    upper:property :version ;
+    upper:property :yrkandestatus ;
+    upper:label "SakfragaStallningstagande"@en ;
+.
+
+:RollIYrkande
+    a upper:DirectClass ;
+    upper:property :avserPersontyp ;
+    upper:property :id ;
+    upper:property :individ ;
+    upper:property :yrkanderoll ;
+    upper:property :avserYrkande ;
+    upper:label "RollIYrkande"@en ;
+.
+
+:Avslutstyp
+    a upper:DirectClass ;
+    upper:property :avslutstyp ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:label "Avslutstyp"@en ;
+.
+
+:Beslutsrad
+    a upper:DirectClass ;
+    upper:property :avslutstyp ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :beslutstyp ;
+    upper:property :beslutsutfall ;
+    upper:property :harSakfragaStallningstaganden ;
+    upper:label "Beslutsrad"@en ;
+.
+
+:Beslutstyp
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :versionsbesluttyp ;
+    upper:label "Beslutstyp"@en ;
+.
+
+:Beslutsutfallstyp
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :beslutsutfall ;
+    upper:label "Beslutsutfallstyp"@en ;
+.
+
+:Yrkanderoll
+    a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :yrkanderollTyp ;
+    upper:label "Yrkanderoll"@en ;
+.
+
+:behorighetsgrupp
+    a upper:Relationship ;
+    upper:class :https://data.fk.se/mimer/se ;
+    upper:label "behorighetsgrupp"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:behorighetsroll
+    a upper:Relationship ;
+    upper:class :https://data.fk.se/mimer/se ;
+    upper:label "behorighetsroll"@en ;
+.
+
+:tillhorBehorighetsgrupp
+    a upper:Relationship ;
+    upper:class :Behorighetsgrupper ;
+    upper:label "tillhorBehorighetsgrupp"@en ;
+.
+
+:serialVersionUID
+    a upper:Attribute ;
+    upper:datatype xsd:long ;
+    upper:label "serialVersionUID"@en ;
+.
+
+:anteckning
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "anteckning"@en ;
+.
+
+:rubrik
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "rubrik"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:skapadTS
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "skapadTS"@en ;
+.
+
+:utforare
+    a upper:Relationship ;
+    upper:class :IDTyp ;
+    upper:label "utforare"@en ;
+.
+
+:utforsIHandlaggning
+    a upper:Relationship ;
+    upper:class :Handlaggning ;
+    upper:label "utforsIHandlaggning"@en ;
+.
+
+:aktivitetID
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "aktivitetID"@en ;
+.
+
+:avserUppgiftsspecifikation
+    a upper:Relationship ;
+    upper:class :Uppgiftsspecifikation ;
+    upper:label "avserUppgiftsspecifikation"@en ;
+.
+
+:fssaInfo
+    a upper:Relationship ;
+    upper:class :FSSAInformationstyp ;
+    upper:label "fssaInfo"@en ;
+.
+
+:planeradTillTS
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "planeradTillTS"@en ;
+.
+
+:resultat
+    a upper:Relationship ;
+    upper:class :Uppgiftsdata ;
+    upper:label "resultat"@en ;
+.
+
+:underlag
+    a upper:Relationship ;
+    upper:class :Uppgiftsdata ;
+    upper:label "underlag"@en ;
+.
+
+:uppgiftsstatus
+    a upper:Relationship ;
+    upper:class :Uppgiftsstatustyp ;
+    upper:label "uppgiftsstatus"@en ;
+.
+
+:utfall
+    a upper:Relationship ;
+    upper:class :Regelutfall ;
+    upper:label "utfall"@en ;
+.
+
+:utfordTS
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "utfordTS"@en ;
+.
+
+:avserHandlaggningsspecifikation
+    a upper:Relationship ;
+    upper:class :Handlaggningsspecifikation ;
+    upper:label "avserHandlaggningsspecifikation"@en ;
+.
+
+:beskrivning
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "beskrivning"@en ;
+.
+
+:bpmnUrl
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "bpmnUrl"@en ;
+.
+
+:harAktiviteter
+    a upper:Relationship ;
+    upper:class :Aktivitet ;
+    upper:label "harAktiviteter"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:namn
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "namn"@en ;
+.
+
+:avserFysiskPerson
+    a upper:Relationship ;
+    upper:class :FysiskPerson ;
+    upper:label "avserFysiskPerson"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:avserAnstallningar
+    a upper:Relationship ;
+    upper:class :Anstallning ;
+    upper:label "avserAnstallningar"@en ;
+.
+
+:avserSpecificeradeErsattningsperioder
+    a upper:Relationship ;
+    upper:class :SpecificeradErsattningsperiod ;
+    upper:label "avserSpecificeradeErsattningsperioder"@en ;
+.
+
+:gallerForAnstallning
+    a upper:Relationship ;
+    upper:class :Anstallning ;
+    upper:label "gallerForAnstallning"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:typAvLoneforman
+    a upper:Relationship ;
+    upper:class :AvtaladLoneformanstyp ;
+    upper:label "typAvLoneforman"@en ;
+.
+
+:anstallninggradProcent
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "anstallninggradProcent"@en ;
+.
+
+:avserFysiskPerson
+    a upper:Relationship ;
+    upper:class :FysiskPerson ;
+    upper:label "avserFysiskPerson"@en ;
+.
+
+:avserRoll
+    a upper:Relationship ;
+    upper:class :Yrkesroll ;
+    upper:label "avserRoll"@en ;
+.
+
+:forstaAnstallningsdag
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "forstaAnstallningsdag"@en ;
+.
+
+:harAvtalMedOrganisation
+    a upper:Relationship ;
+    upper:class :Organisation ;
+    upper:label "harAvtalMedOrganisation"@en ;
+.
+
+:sistaAnstallningsdag
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "sistaAnstallningsdag"@en ;
+.
+
+:belopp
+    a upper:Attribute ;
+    upper:datatype xsd:double ;
+    upper:label "belopp"@en ;
+.
+
+:ersattningsradTyp
+    a upper:Relationship ;
+    upper:class :ErsattningsradTyp ;
+    upper:label "ersattningsradTyp"@en ;
+.
+
+:from
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "from"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:tillhorSpecificeradErsattningsperiod
+    a upper:Relationship ;
+    upper:class :SpecificeradErsattningsperiod ;
+    upper:label "tillhorSpecificeradErsattningsperiod"@en ;
+.
+
+:tom
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "tom"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:ersattningstyp
+    a upper:Relationship ;
+    upper:class :Ersattningstyp ;
+    upper:label "ersattningstyp"@en ;
+.
+
+:tillhorUtbetaldAllmanErsattning
+    a upper:Relationship ;
+    upper:class :UtbetaldAllmanErsattning ;
+    upper:label "tillhorUtbetaldAllmanErsattning"@en ;
+.
+
+:arPerson
+    a upper:Relationship ;
+    upper:class :FysiskPerson ;
+    upper:label "arPerson"@en ;
+.
+
+:harFunktionIOrganisation
+    a upper:Relationship ;
+    upper:class :Organisation ;
+    upper:label "harFunktionIOrganisation"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:juridiskFormkod
+    a upper:Relationship ;
+    upper:class :JuridiskFormkod ;
+    upper:label "juridiskFormkod"@en ;
+.
+
+:organisationsFormkod
+    a upper:Relationship ;
+    upper:class :OrganisationsForm ;
+    upper:label "organisationsFormkod"@en ;
+.
+
+:organisationsIdentitet
+    a upper:Relationship ;
+    upper:class :OrganisationsIdentitet ;
+    upper:label "organisationsIdentitet"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:careOf
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "careOf"@en ;
+.
+
+:postnummer
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "postnummer"@en ;
+.
+
+:postort
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "postort"@en ;
+.
+
+:utdelningsadress1
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "utdelningsadress1"@en ;
+.
+
+:utdelningsadress2
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "utdelningsadress2"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:avdelningNamn
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "avdelningNamn"@en ;
+.
+
+:paragraBeskrivning
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "paragraBeskrivning"@en ;
+.
+
+:paragrafArtikelId
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "paragrafArtikelId"@en ;
+.
+
+:paragrafArtikelNamn
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "paragrafArtikelNamn"@en ;
+.
+
+:paragrafGiltigFrom
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "paragrafGiltigFrom"@en ;
+.
+
+:paragrafGiltigTom
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "paragrafGiltigTom"@en ;
+.
+
+:referensTillAnnanForfattning
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "referensTillAnnanForfattning"@en ;
+.
+
+:rubrik
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "rubrik"@en ;
+.
+
+:underavdelningNamn
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "underavdelningNamn"@en ;
+.
+
+:underrubrik
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "underrubrik"@en ;
+.
+
+:individId
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "individId"@en ;
+.
+
+:punktBeskrivning
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "punktBeskrivning"@en ;
+.
+
+:punktSekvens
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "punktSekvens"@en ;
+.
+
+:styckeBeskrivning
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "styckeBeskrivning"@en ;
+.
+
+:avserSakfraga
+    a upper:Relationship ;
+    upper:class :Sakfraga ;
+    upper:label "avserSakfraga"@en ;
+.
+
+:SFBInkomstBelopp
+    a upper:Attribute ;
+    upper:datatype xsd:double ;
+    upper:label "SFBInkomstBelopp"@en ;
+.
+
+:SFBInkomstDatum
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "SFBInkomstDatum"@en ;
+.
+
+:SFBInkomstFrom
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "SFBInkomstFrom"@en ;
+.
+
+:SFBInkomstTom
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "SFBInkomstTom"@en ;
+.
+
+:SFBInkomstTyp
+    a upper:Relationship ;
+    upper:class :SFBInkomsttyper ;
+    upper:label "SFBInkomstTyp"@en ;
+.
+
+:avserInkomst
+    a upper:Relationship ;
+    upper:class :Inkomst ;
+    upper:label "avserInkomst"@en ;
+.
+
+:periodisering
+    a upper:Relationship ;
+    upper:class :Periodisering ;
+    upper:label "periodisering"@en ;
+.
+
+:anledningIngenBidragssparr
+    a upper:Relationship ;
+    upper:class :AnledningIngenBidragssparr ;
+    upper:label "anledningIngenBidragssparr"@en ;
+.
+
+:formanssparr
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "formanssparr"@en ;
+.
+
+:grundForBidragssparrutredning
+    a upper:Relationship ;
+    upper:class :GrundForBidragssparrutredning ;
+    upper:label "grundForBidragssparrutredning"@en ;
+.
+
+:omfattningIProcent
+    a upper:Attribute ;
+    upper:datatype xsd:double ;
+    upper:label "omfattningIProcent"@en ;
+.
+
+:arbetar
+    a upper:Attribute ;
+    upper:datatype xsd:boolean ;
+    upper:label "arbetar"@en ;
+.
+
+:bosatt
+    a upper:Attribute ;
+    upper:datatype xsd:boolean ;
+    upper:label "bosatt"@en ;
+.
+
+:stallningstagande
+    a upper:Relationship ;
+    upper:class :Stallningstagande ;
+    upper:label "stallningstagande"@en ;
+.
+
+:avserInkomst
+    a upper:Relationship ;
+    upper:class :Inkomst ;
+    upper:label "avserInkomst"@en ;
+.
+
+:bedomdInkomstBelopp
+    a upper:Attribute ;
+    upper:datatype xsd:double ;
+    upper:label "bedomdInkomstBelopp"@en ;
+.
+
+:bedomdInkomstDatum
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "bedomdInkomstDatum"@en ;
+.
+
+:bedomdInkomstFrom
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "bedomdInkomstFrom"@en ;
+.
+
+:bedomdInkomstTom
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "bedomdInkomstTom"@en ;
+.
+
+:bedomdInkomstTyp
+    a upper:Relationship ;
+    upper:class :StallningstagnaInkomsttyper ;
+    upper:label "bedomdInkomstTyp"@en ;
+.
+
+:periodisering
+    a upper:Relationship ;
+    upper:class :Periodisering ;
+    upper:label "periodisering"@en ;
+.
+
+:bedomdIKostnadTyp
+    a upper:Relationship ;
+    upper:class :StallningstagnaKostnadstyper ;
+    upper:label "bedomdIKostnadTyp"@en ;
+.
+
+:bedomdKonstnadBelopp
+    a upper:Attribute ;
+    upper:datatype xsd:double ;
+    upper:label "bedomdKonstnadBelopp"@en ;
+.
+
+:bedomdKostnadDatum
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "bedomdKostnadDatum"@en ;
+.
+
+:bedomdKostnadFrom
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "bedomdKostnadFrom"@en ;
+.
+
+:bedomdKostnadTom
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "bedomdKostnadTom"@en ;
+.
+
+:undantagenKravPaKvalificering
+    a upper:Attribute ;
+    upper:datatype xsd:boolean ;
+    upper:label "undantagenKravPaKvalificering"@en ;
+.
+
+:uppfylltKravPaKvalificering
+    a upper:Attribute ;
+    upper:datatype xsd:boolean ;
+    upper:label "uppfylltKravPaKvalificering"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:platstyp
+    a upper:Relationship ;
+    upper:class :TjanstgoringsPlatstyper ;
+    upper:label "platstyp"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:tjanstgoringstyp
+    a upper:Relationship ;
+    upper:class :Tjanstgoringstyper ;
+    upper:label "tjanstgoringstyp"@en ;
+.
+
+:avserBeslut
+    a upper:Relationship ;
+    upper:class :Beslut ;
+    upper:label "avserBeslut"@en ;
+.
+
+:avserBesvarAvBeslut
+    a upper:Relationship ;
+    upper:class :Beslut ;
+    upper:label "avserBesvarAvBeslut"@en ;
+.
+
+:avserErbjudande
+    a upper:Relationship ;
+    upper:class :Erbjudande ;
+    upper:label "avserErbjudande"@en ;
+.
+
+:avserSakfragaStallningstagande
+    a upper:Relationship ;
+    upper:class :SakfragaStallningstagande ;
+    upper:label "avserSakfragaStallningstagande"@en ;
+.
+
+:avsikt
+    a upper:Relationship ;
+    upper:class :Avsiktstyp ;
+    upper:label "avsikt"@en ;
+.
+
+:from
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "from"@en ;
+.
+
+:hanterasIHandlaggningar
+    a upper:Relationship ;
+    upper:class :Handlaggning ;
+    upper:label "hanterasIHandlaggningar"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:rollerIYrkandet
+    a upper:Relationship ;
+    upper:class :RollIYrkande ;
+    upper:label "rollerIYrkandet"@en ;
+.
+
+:tom
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "tom"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:yrkandeDatum
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "yrkandeDatum"@en ;
+.
+
+:yrkandeStatus
+    a upper:Relationship ;
+    upper:class :Yrkandestatus ;
+    upper:label "yrkandeStatus"@en ;
+.
+
+:avserPersontyp
+    a upper:Relationship ;
+    upper:class :Persontyp ;
+    upper:label "avserPersontyp"@en ;
+.
+
+:avserSakfragaStallningstagande
+    a upper:Relationship ;
+    upper:class :SakfragaStallningstagande ;
+    upper:label "avserSakfragaStallningstagande"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:individ
+    a upper:Relationship ;
+    upper:class :IDTyp ;
+    upper:label "individ"@en ;
+.
+
+:yrkanderoll
+    a upper:Relationship ;
+    upper:class :Yrkanderoll ;
+    upper:label "yrkanderoll"@en ;
+.
+
+:beskrivning
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "beskrivning"@en ;
+.
+
+:erbjudnaDatamangder
+    a upper:Relationship ;
+    upper:class :https://data.fk.se/mimer/se ;
+    upper:label "erbjudnaDatamangder"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:namn
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "namn"@en ;
+.
+
+:tillhorErbjudanDatamangdsgrupp
+    a upper:Relationship ;
+    upper:class :ErbjudanDatamangdsgrupper ;
+    upper:label "tillhorErbjudanDatamangdsgrupp"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:kontaktAnvandare
+    a upper:Relationship ;
+    upper:class :Anvandare ;
+    upper:label "kontaktAnvandare"@en ;
+.
+
+:teamtyp
+    a upper:Relationship ;
+    upper:class :Teamtyp ;
+    upper:label "teamtyp"@en ;
+.
+
+:tillhorOrganisationsenhet
+    a upper:Relationship ;
+    upper:class :Organisationsenhet ;
+    upper:label "tillhorOrganisationsenhet"@en ;
+.
+
+:namn
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "namn"@en ;
+.
+
+:tillhorOrganisation
+    a upper:Relationship ;
+    upper:class :Organisation ;
+    upper:label "tillhorOrganisation"@en ;
+.
+
+:tillhorOrganisationsenhet
+    a upper:Relationship ;
+    upper:class :Organisationsenhet ;
+    upper:label "tillhorOrganisationsenhet"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:kod
+    a upper:Relationship ;
+    upper:class :JuridiskFormkodKoder ;
+    upper:label "kod"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:yrkesroll
+    a upper:Relationship ;
+    upper:class :Yrkesroller ;
+    upper:label "yrkesroll"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:avserOrganisation
+    a upper:Relationship ;
+    upper:class :Organisation ;
+    upper:label "avserOrganisation"@en ;
+.
+
+:idTyp
+    a upper:Relationship ;
+    upper:class :IDTyper ;
+    upper:label "idTyp"@en ;
+.
+
+:varde
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "varde"@en ;
+.
+
+:avserOrganisationsenhet
+    a upper:Relationship ;
+    upper:class :Organisationsenhet ;
+    upper:label "avserOrganisationsenhet"@en ;
+.
+
+:harBehorighetsroller
+    a upper:Relationship ;
+    upper:class :Behorighetsroller ;
+    upper:label "harBehorighetsroller"@en ;
+.
+
+:harErbjudnaDatamangder
+    a upper:Relationship ;
+    upper:class :ErbjudnaDatamangder ;
+    upper:label "harErbjudnaDatamangder"@en ;
+.
+
+:harYrkesroll
+    a upper:Relationship ;
+    upper:class :Yrkesroll ;
+    upper:label "harYrkesroll"@en ;
+.
+
+:idTyp
+    a upper:Relationship ;
+    upper:class :IDTyp ;
+    upper:label "idTyp"@en ;
+.
+
+:tillhorBehorighetsgrupper
+    a upper:Relationship ;
+    upper:class :Behorighetsgrupper ;
+    upper:label "tillhorBehorighetsgrupper"@en ;
+.
+
+:tillhorErbjudanDatamangdsgrupper
+    a upper:Relationship ;
+    upper:class :ErbjudanDatamangdsgrupper ;
+    upper:label "tillhorErbjudanDatamangdsgrupper"@en ;
+.
+
+:tillhorTeam
+    a upper:Relationship ;
+    upper:class :Team ;
+    upper:label "tillhorTeam"@en ;
+.
+
+:erbjudnaDatamangdsgrupper
+    a upper:Relationship ;
+    upper:class :ErbjudnaDatamangdsgrupper ;
+    upper:label "erbjudnaDatamangdsgrupper"@en ;
+.
+
+:formanstyp
+    a upper:Relationship ;
+    upper:class :https://data.fk.se/mimer/se ;
+    upper:label "formanstyp"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:beskrivning
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "beskrivning"@en ;
+.
+
+:erbjudande
+    a upper:Relationship ;
+    upper:class :Erbjudandetyp ;
+    upper:label "erbjudande"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:ingarIForman
+    a upper:Relationship ;
+    upper:class :Forman ;
+    upper:label "ingarIForman"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:erbjudandenamn
+    a upper:Relationship ;
+    upper:class :Erbjudandenamn ;
+    upper:label "erbjudandenamn"@en ;
+.
+
+:beskrivning
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "beskrivning"@en ;
+.
+
+:produktnamn
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "produktnamn"@en ;
+.
+
+:tillhorOrganisationsenhet
+    a upper:Relationship ;
+    upper:class :Organisationsenhet ;
+    upper:label "tillhorOrganisationsenhet"@en ;
+.
+
+:beskrivning
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "beskrivning"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:ingarIFormaner
+    a upper:Relationship ;
+    upper:class :Forman ;
+    upper:label "ingarIFormaner"@en ;
+.
+
+:sakfragetyper
+    a upper:Relationship ;
+    upper:class :Sakfragetyper ;
+    upper:label "sakfragetyper"@en ;
+.
+
+:sakfragetypkategori
+    a upper:Relationship ;
+    upper:class :Sakfragetypkategori ;
+    upper:label "sakfragetypkategori"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:anknytandeSakfraga
+    a upper:Relationship ;
+    upper:class :AnknytandeSakfragetyper ;
+    upper:label "anknytandeSakfraga"@en ;
+.
+
+:rattenTillSakfraga
+    a upper:Relationship ;
+    upper:class :BerattigadeSakfragetyper ;
+    upper:label "rattenTillSakfraga"@en ;
+.
+
+:beloppstyp
+    a upper:Relationship ;
+    upper:class :HandlaggningsIDTyper ;
+    upper:label "beloppstyp"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:applikationsId
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "applikationsId"@en ;
+.
+
+:avserRegler
+    a upper:Relationship ;
+    upper:class :Regel ;
+    upper:label "avserRegler"@en ;
+.
+
+:behorighetsroll
+    a upper:Relationship ;
+    upper:class :Behorighetsroller ;
+    upper:label "behorighetsroll"@en ;
+.
+
+:guiURL
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "guiURL"@en ;
+.
+
+:namn
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "namn"@en ;
+.
+
+:uppgiftsbeskrivning
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "uppgiftsbeskrivning"@en ;
+.
+
+:verksamhetslogik
+    a upper:Relationship ;
+    upper:class :Verksamhetslogiktyper ;
+    upper:label "verksamhetslogik"@en ;
+.
+
+:anvanderUppgiftsspecifikationer
+    a upper:Relationship ;
+    upper:class :Uppgiftsspecifikation ;
+    upper:label "anvanderUppgiftsspecifikationer"@en ;
+.
+
+:beskrivning
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "beskrivning"@en ;
+.
+
+:bpmnUrl
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "bpmnUrl"@en ;
+.
+
+:namn
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "namn"@en ;
+.
+
+:typ
+    a upper:Relationship ;
+    upper:class :Regelutfallstyp ;
+    upper:label "typ"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:lagrum
+    a upper:Relationship ;
+    upper:class :Lagrum ;
+    upper:label "lagrum"@en ;
+.
+
+:objektId
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "objektId"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:avserInformationsobjekt
+    a upper:Relationship ;
+    upper:class :Informationsobjekt ;
+    upper:label "avserInformationsobjekt"@en ;
+.
+
+:informationsobjektsId
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "informationsobjektsId"@en ;
+.
+
+:informationsobjektsVersion
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "informationsobjektsVersion"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:regelutfall
+    a upper:Relationship ;
+    upper:class :Regelutfallstyper ;
+    upper:label "regelutfall"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:avserBesvarAvAnvandare
+    a upper:Relationship ;
+    upper:class :Anvandare ;
+    upper:label "avserBesvarAvAnvandare"@en ;
+.
+
+:avserHandlaggningsspecifikation
+    a upper:Relationship ;
+    upper:class :Handlaggningsspecifikation ;
+    upper:label "avserHandlaggningsspecifikation"@en ;
+.
+
+:avslutadTS
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "avslutadTS"@en ;
+.
+
+:handlaggningsIdTyp
+    a upper:Relationship ;
+    upper:class :HandlaggningsIDTyp ;
+    upper:label "handlaggningsIdTyp"@en ;
+.
+
+:handlaggningsIdVarde
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "handlaggningsIdVarde"@en ;
+.
+
+:skapadTS
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "skapadTS"@en ;
+.
+
+:verksamhetslogik
+    a upper:Relationship ;
+    upper:class :Verksamhetslogik ;
+    upper:label "verksamhetslogik"@en ;
+.
+
+:aktivitetID
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "aktivitetID"@en ;
+.
+
+:adress
+    a upper:Relationship ;
+    upper:class :Adress ;
+    upper:label "adress"@en ;
+.
+
+:efternamn
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "efternamn"@en ;
+.
+
+:fornamn
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "fornamn"@en ;
+.
+
+:kon
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "kon"@en ;
+.
+
+:gallerForAnstallning
+    a upper:Relationship ;
+    upper:class :Anstallning ;
+    upper:label "gallerForAnstallning"@en ;
+.
+
+:gallerForUtbetaldAllmanErsattning
+    a upper:Relationship ;
+    upper:class :UtbetaldAllmanErsattning ;
+    upper:label "gallerForUtbetaldAllmanErsattning"@en ;
+.
+
+:ersattningsSummaForPeriod
+    a upper:Attribute ;
+    upper:datatype xsd:double ;
+    upper:label "ersattningsSummaForPeriod"@en ;
+.
+
+:loneforman
+    a upper:Relationship ;
+    upper:class :Loneformaner ;
+    upper:label "loneforman"@en ;
+.
+
+:juridiskFormkod
+    a upper:Relationship ;
+    upper:class :JuridiskFormkod ;
+    upper:label "juridiskFormkod"@en ;
+.
+
+:organisationsFormkod
+    a upper:Relationship ;
+    upper:class :OrganisationsForm ;
+    upper:label "organisationsFormkod"@en ;
+.
+
+:organisationsIdentitetskod
+    a upper:Relationship ;
+    upper:class :OrganisationsIdentitet ;
+    upper:label "organisationsIdentitetskod"@en ;
+.
+
+:varde
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "varde"@en ;
+.
+
+:arEnIndivid
+    a upper:Relationship ;
+    upper:class :Individ ;
+    upper:label "arEnIndivid"@en ;
+.
+
+:fysiskPerson
+    a upper:Relationship ;
+    upper:class :FysiskPerson ;
+    upper:label "fysiskPerson"@en ;
+.
+
+:idTyp
+    a upper:Relationship ;
+    upper:class :IDTyp ;
+    upper:label "idTyp"@en ;
+.
+
+:juridiskPersonForOrganisation
+    a upper:Relationship ;
+    upper:class :Organisation ;
+    upper:label "juridiskPersonForOrganisation"@en ;
+.
+
+:status
+    a upper:Relationship ;
+    upper:class :YrkandeStatus ;
+    upper:label "status"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:periodisering
+    a upper:Relationship ;
+    upper:class :https://data.fk.se/mimer/se ;
+    upper:label "periodisering"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:ingenSparrAnledning
+    a upper:Relationship ;
+    upper:class :IngenSparrAnledning ;
+    upper:label "ingenSparrAnledning"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:bidragssparrgrund
+    a upper:Relationship ;
+    upper:class :Bidragssparrgrund ;
+    upper:label "bidragssparrgrund"@en ;
+.
+
+:beloppstyper
+    a upper:Relationship ;
+    upper:class :https://data.fk.se/mimer/se ;
+    upper:label "beloppstyper"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:berakningsgrunder
+    a upper:Relationship ;
+    upper:class :Berakningsgrund ;
+    upper:label "berakningsgrunder"@en ;
+.
+
+:beloppsTyp
+    a upper:Relationship ;
+    upper:class :Beloppstyper ;
+    upper:label "beloppsTyp"@en ;
+.
+
+:ersattningsBelopp
+    a upper:Attribute ;
+    upper:datatype xsd:double ;
+    upper:label "ersattningsBelopp"@en ;
+.
+
+:omfattningProcent
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "omfattningProcent"@en ;
+.
+
+:periodisering
+    a upper:Relationship ;
+    upper:class :Periodisering ;
+    upper:label "periodisering"@en ;
+.
+
+:samordnasMedErsattningar
+    a upper:Relationship ;
+    upper:class :Ersattning ;
+    upper:label "samordnasMedErsattningar"@en ;
+.
+
+:beskrivning
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "beskrivning"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:stallningstagandetyp
+    a upper:Relationship ;
+    upper:class :Stallningstagandetyper ;
+    upper:label "stallningstagandetyp"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:bedomdInkomst
+    a upper:Relationship ;
+    upper:class :BedomdInkomst ;
+    upper:label "bedomdInkomst"@en ;
+.
+
+:bedomdKostnad
+    a upper:Relationship ;
+    upper:class :BedomdKostnad ;
+    upper:label "bedomdKostnad"@en ;
+.
+
+:berakningsgrunder
+    a upper:Relationship ;
+    upper:class :https://data.fk.se/mimer/se ;
+    upper:label "berakningsgrunder"@en ;
+.
+
+:avserOrganisationsenhet
+    a upper:Relationship ;
+    upper:class :Organisationsenhet ;
+    upper:label "avserOrganisationsenhet"@en ;
+.
+
+:avserPerson
+    a upper:Relationship ;
+    upper:class :FysiskPerson ;
+    upper:label "avserPerson"@en ;
+.
+
+:plikttypForTjanstgoringITotalforsvaret
+    a upper:Relationship ;
+    upper:class :PlikttypForTjanstgoringITotalforsvaret ;
+    upper:label "plikttypForTjanstgoringITotalforsvaret"@en ;
+.
+
+:tjanstgoringFrom
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "tjanstgoringFrom"@en ;
+.
+
+:tjanstgoringITotalforsvaret
+    a upper:Relationship ;
+    upper:class :TjanstgoringITotalforsvaret ;
+    upper:label "tjanstgoringITotalforsvaret"@en ;
+.
+
+:tjanstgoringTom
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "tjanstgoringTom"@en ;
+.
+
+:tjanstgoringsstatusForTjanstgoringITotalforsvaret
+    a upper:Relationship ;
+    upper:class :TjanstgoringsstatusForTjanstgoringITotalforsvaret ;
+    upper:label "tjanstgoringsstatusForTjanstgoringITotalforsvaret"@en ;
+.
+
+:tjanstgoringsstatusTyp
+    a upper:Relationship ;
+    upper:class :TjanstgoringsStatustyper ;
+    upper:label "tjanstgoringsstatusTyp"@en ;
+.
+
+:avsiktstyp
+    a upper:Relationship ;
+    upper:class :Avsiktstyper ;
+    upper:label "avsiktstyp"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:beslutsDatum
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "beslutsDatum"@en ;
+.
+
+:beslutsfattare
+    a upper:Relationship ;
+    upper:class :IDTyp ;
+    upper:label "beslutsfattare"@en ;
+.
+
+:beslutsrader
+    a upper:Relationship ;
+    upper:class :Beslutsrad ;
+    upper:label "beslutsrader"@en ;
+.
+
+:avserPersontyper
+    a upper:Relationship ;
+    upper:class :Persontyp ;
+    upper:label "avserPersontyper"@en ;
+.
+
+:avslagPaGrundAvRegler
+    a upper:Relationship ;
+    upper:class :Regel ;
+    upper:label "avslagPaGrundAvRegler"@en ;
+.
+
+:faststallsForYrkande
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "faststallsForYrkande"@en ;
+.
+
+:from
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "from"@en ;
+.
+
+:godkandRegler
+    a upper:Relationship ;
+    upper:class :Regel ;
+    upper:label "godkandRegler"@en ;
+.
+
+:id
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "id"@en ;
+.
+
+:tom
+    a upper:Attribute ;
+    upper:datatype xsd:dateTime ;
+    upper:label "tom"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:yrkandestatus
+    a upper:Relationship ;
+    upper:class :Yrkandestatus ;
+    upper:label "yrkandestatus"@en ;
+.
+
+:avserYrkande
+    a upper:Attribute ;
+    upper:datatype xsd:string ;
+    upper:label "avserYrkande"@en ;
+.
+
+:avslutstyp
+    a upper:Relationship ;
+    upper:class :Avslutstyper ;
+    upper:label "avslutstyp"@en ;
+.
+
+:beslutstyp
+    a upper:Relationship ;
+    upper:class :Beslutstyp ;
+    upper:label "beslutstyp"@en ;
+.
+
+:beslutsutfall
+    a upper:Relationship ;
+    upper:class :Beslutsutfall ;
+    upper:label "beslutsutfall"@en ;
+.
+
+:harSakfragaStallningstaganden
+    a upper:Relationship ;
+    upper:class :SakfragaStallningstagande ;
+    upper:label "harSakfragaStallningstaganden"@en ;
+.
+
+:versionsbesluttyp
+    a upper:Relationship ;
+    upper:class :Versionsbeslutstyper ;
+    upper:label "versionsbesluttyp"@en ;
+.
+
+:version
+    a upper:Attribute ;
+    upper:datatype xsd:integer ;
+    upper:label "version"@en ;
+.
+
+:yrkanderollTyp
+    a upper:Relationship ;
+    upper:class :YrkanderollTyper ;
+    upper:label "yrkanderollTyp"@en ;
+.
+
+:Land
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Land"@en ;
+.
+
+:Periodisering
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Periodisering"@en ;
+.
+
+:ErbjudnaDatamangder
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "ErbjudnaDatamangder"@en ;
+.
+
+:Formanstyp
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Formanstyp"@en ;
+.
+
+:Foretradartyp
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Foretradartyp"@en ;
+.
+
+:Funktionarstyp
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Funktionarstyp"@en ;
+.
+
+:Berakningsgrunder
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Berakningsgrunder"@en ;
+.
+
+:Beloppstyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Beloppstyper"@en ;
+.
+
+:ErbjudnaDatamangdsgrupper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "ErbjudnaDatamangdsgrupper"@en ;
+.
+
+:Behorighetsroller
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Behorighetsroller"@en ;
+.
+
+:Behorighetsgrupper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Behorighetsgrupper"@en ;
+.
+
+:Yrkesroller
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Yrkesroller"@en ;
+.
+
+:Erbjudandenamn
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Erbjudandenamn"@en ;
+.
+
+:AnknytandeSakfragetyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "AnknytandeSakfragetyper"@en ;
+.
+
+:BerattigadeSakfragetyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "BerattigadeSakfragetyper"@en ;
+.
+
+:HandlaggningsIDTyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "HandlaggningsIDTyper"@en ;
+.
+
+:Regelutfallstyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Regelutfallstyper"@en ;
+.
+
+:Loneformaner
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Loneformaner"@en ;
+.
+
+:IDTyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "IDTyper"@en ;
+.
+
+:Uppgiftsstatus
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Uppgiftsstatus"@en ;
+.
+
+:Verksamhetslogik
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Verksamhetslogik"@en ;
+.
+
+:Teamtyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Teamtyper"@en ;
+.
+
+:Sakfragetypkategorier
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Sakfragetypkategorier"@en ;
+.
+
+:FSSAInformationstyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "FSSAInformationstyper"@en ;
+.
+
+:Ersattningsradtyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Ersattningsradtyper"@en ;
+.
+
+:Ersattningstyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Ersattningstyper"@en ;
+.
+
+:JuridiskFormkodKoder
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "JuridiskFormkodKoder"@en ;
+.
+
+:OrganisationsFormkoder
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "OrganisationsFormkoder"@en ;
+.
+
+:OrganisationsIdentitetsKoder
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "OrganisationsIdentitetsKoder"@en ;
+.
+
+:Bidragssparrgrund
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Bidragssparrgrund"@en ;
+.
+
+:IngenSparrAnledning
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "IngenSparrAnledning"@en ;
+.
+
+:SFBInkomsttyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "SFBInkomsttyper"@en ;
+.
+
+:BedomdInkomst
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "BedomdInkomst"@en ;
+.
+
+:BedomdKostnad
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "BedomdKostnad"@en ;
+.
+
+:Stallningstagandetyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Stallningstagandetyper"@en ;
+.
+
+:TjanstgoringsPlatstyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "TjanstgoringsPlatstyper"@en ;
+.
+
+:TjanstgoringsPlikttyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "TjanstgoringsPlikttyper"@en ;
+.
+
+:TjanstgoringsStatustyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "TjanstgoringsStatustyper"@en ;
+.
+
+:Tjanstgoringstyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Tjanstgoringstyper"@en ;
+.
+
+:Avsiktstyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Avsiktstyper"@en ;
+.
+
+:YrkandeStatus
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "YrkandeStatus"@en ;
+.
+
+:YrkanderollTyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "YrkanderollTyper"@en ;
+.
+
+:Avslutstyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Avslutstyper"@en ;
+.
+
+:Beslutsutfall
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Beslutsutfall"@en ;
+.
+
+:Versionsbeslutstyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Versionsbeslutstyper"@en ;
+.
