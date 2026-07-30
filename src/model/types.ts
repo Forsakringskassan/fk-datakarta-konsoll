@@ -1,14 +1,8 @@
-export interface SchemaNodeProperty {
-  name: string
-  type: string
-  description?: string
-}
-
 export interface SchemaNodeData {
   kind: 'schema'
   label: string
   description?: string
-  properties: SchemaNodeProperty[]
+  properties: Property[]
   toolbarVisible?: boolean
 }
 
@@ -29,28 +23,6 @@ export interface DirectClass {
   properties: Property[]
 }
 
-export interface BaseProperty {
-  id: string
-  label: string
-  description?: string
-}
-
-export interface Attribute extends BaseProperty {
-  kind: 'attribute'
-  datatype: string
-  minCount?: number
-  maxCount?: number
-}
-
-export interface Relationship extends BaseProperty {
-  kind: 'relationship'
-  targetClass: string
-  minCount?: number
-  maxCount?: number
-}
-
-export type Property = Attribute | Relationship
-
 export interface Enumeration {
   id: string
   label: string
@@ -62,3 +34,23 @@ export interface EnumValue {
   id: string
   label: string
 }
+
+export interface BaseProperty {
+  id: string
+  label: string
+  description?: string
+  minCount?: number
+  maxCount?: number
+}
+
+export interface Attribute extends BaseProperty {
+  kind: 'attribute'
+  datatype: string
+}
+
+export interface Relationship extends BaseProperty {
+  kind: 'relationship'
+  targetClass: string
+}
+
+export type Property = Attribute | Relationship

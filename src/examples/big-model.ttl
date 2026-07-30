@@ -74,11 +74,11 @@
 
 :AbstraktProcessbeskrivning
     a upper:DirectClass ;
+    upper:property :id ;
     upper:property :avserHandlaggningsspecifikation ;
     upper:property :beskrivning ;
     upper:property :bpmnUrl ;
     upper:property :harAktiviteter ;
-    upper:property :id ;
     upper:property :namn ;
     upper:label "AbstraktProcessbeskrivning"@en ;
 .
@@ -90,9 +90,9 @@
 
 :Inkomst
     a upper:DirectClass ;
-    upper:property :avserFysiskPerson ;
     upper:property :id ;
     upper:property :version ;
+    upper:property :avserFysiskPerson ;
     upper:label "Inkomst"@en ;
 .
 
@@ -110,17 +110,17 @@
 
 :AvtaladLon
     a upper:DirectClass ;
-    upper:property :gallerForAnstallning ;
     upper:property :id ;
     upper:property :version ;
+    upper:property :gallerForAnstallning ;
     upper:label "AvtaladLon"@en ;
 .
 
 :AvtaladLoneforman
     a upper:DirectClass ;
-    upper:property :gallerForAnstallning ;
     upper:property :id ;
     upper:property :version ;
+    upper:property :gallerForAnstallning ;
     upper:property :typAvLoneforman ;
     upper:label "AvtaladLoneforman"@en ;
 .
@@ -134,8 +134,8 @@
     a upper:DirectClass ;
     upper:property :id ;
     upper:property :version ;
-    upper:property :anstallninggradProcent ;
     upper:property :avserFysiskPerson ;
+    upper:property :anstallninggradProcent ;
     upper:property :avserRoll ;
     upper:property :forstaAnstallningsdag ;
     upper:property :harAvtalMedOrganisation ;
@@ -145,23 +145,23 @@
 
 :Ersattningsrad
     a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
     upper:property :belopp ;
     upper:property :ersattningsradTyp ;
     upper:property :from ;
-    upper:property :id ;
     upper:property :tillhorSpecificeradErsattningsperiod ;
     upper:property :tom ;
-    upper:property :version ;
     upper:label "Ersattningsrad"@en ;
 .
 
 :UtbetaldAllmanErsattningsrad
     a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
     upper:property :belopp ;
     upper:property :from ;
-    upper:property :id ;
     upper:property :tom ;
-    upper:property :version ;
     upper:property :ersattningstyp ;
     upper:property :tillhorUtbetaldAllmanErsattning ;
     upper:label "UtbetaldAllmanErsattningsrad"@en ;
@@ -169,13 +169,13 @@
 
 :Funktionar
     a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
     upper:property :arPerson ;
     upper:property :harFunktionIOrganisation ;
-    upper:property :id ;
     upper:property :juridiskFormkod ;
     upper:property :organisationsFormkod ;
     upper:property :organisationsIdentitet ;
-    upper:property :version ;
     upper:label "Funktionar"@en ;
 .
 
@@ -198,6 +198,7 @@
 
 :ParagrafArtikel
     a upper:DirectClass ;
+    upper:property :rubrik ;
     upper:property :avdelningNamn ;
     upper:property :paragraBeskrivning ;
     upper:property :paragrafArtikelId ;
@@ -205,7 +206,6 @@
     upper:property :paragrafGiltigFrom ;
     upper:property :paragrafGiltigTom ;
     upper:property :referensTillAnnanForfattning ;
-    upper:property :rubrik ;
     upper:property :underavdelningNamn ;
     upper:property :underrubrik ;
     upper:label "ParagrafArtikel"@en ;
@@ -285,12 +285,12 @@
 :StallningstagenInkomst
     a upper:DirectClass ;
     upper:property :avserInkomst ;
+    upper:property :periodisering ;
     upper:property :bedomdInkomstBelopp ;
     upper:property :bedomdInkomstDatum ;
     upper:property :bedomdInkomstFrom ;
     upper:property :bedomdInkomstTom ;
     upper:property :bedomdInkomstTyp ;
-    upper:property :periodisering ;
     upper:label "StallningstagenInkomst"@en ;
 .
 
@@ -315,8 +315,8 @@
 :PlatstypForTjanstgoringITotalforsvaret
     a upper:DirectClass ;
     upper:property :id ;
-    upper:property :platstyp ;
     upper:property :version ;
+    upper:property :platstyp ;
     upper:label "PlatstypForTjanstgoringITotalforsvaret"@en ;
 .
 
@@ -330,17 +330,17 @@
 
 :Yrkande
     a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :from ;
+    upper:property :tom ;
     upper:property :avserBeslut ;
     upper:property :avserBesvarAvBeslut ;
     upper:property :avserErbjudande ;
     upper:property :avserSakfragaStallningstagande ;
     upper:property :avsikt ;
-    upper:property :from ;
     upper:property :hanterasIHandlaggningar ;
-    upper:property :id ;
     upper:property :rollerIYrkandet ;
-    upper:property :tom ;
-    upper:property :version ;
     upper:property :yrkandeDatum ;
     upper:property :yrkandeStatus ;
     upper:label "Yrkande"@en ;
@@ -348,9 +348,9 @@
 
 :RollIResultatet
     a upper:DirectClass ;
-    upper:property :avserPersontyp ;
-    upper:property :avserSakfragaStallningstagande ;
     upper:property :id ;
+    upper:property :avserSakfragaStallningstagande ;
+    upper:property :avserPersontyp ;
     upper:property :individ ;
     upper:property :yrkanderoll ;
     upper:label "RollIResultatet"@en ;
@@ -358,20 +358,20 @@
 
 :ErbjudnaDatamangder
     a upper:DirectClass ;
-    upper:property :beskrivning ;
-    upper:property :erbjudnaDatamangder ;
     upper:property :id ;
-    upper:property :namn ;
-    upper:property :tillhorErbjudanDatamangdsgrupp ;
     upper:property :version ;
+    upper:property :beskrivning ;
+    upper:property :namn ;
+    upper:property :erbjudnaDatamangder ;
+    upper:property :tillhorErbjudanDatamangdsgrupp ;
     upper:label "ErbjudnaDatamangder"@en ;
 .
 
 :Team
     a upper:DirectClass ;
     upper:property :id ;
-    upper:property :namn ;
     upper:property :version ;
+    upper:property :namn ;
     upper:property :kontaktAnvandare ;
     upper:property :teamtyp ;
     upper:property :tillhorOrganisationsenhet ;
@@ -388,12 +388,12 @@
 
 :Organisationsenhet
     a upper:DirectClass ;
-    upper:property :namn ;
-    upper:property :tillhorOrganisation ;
-    upper:property :tillhorOrganisationsenhet ;
     upper:property :id ;
-    upper:property :kod ;
     upper:property :version ;
+    upper:property :namn ;
+    upper:property :tillhorOrganisationsenhet ;
+    upper:property :tillhorOrganisation ;
+    upper:property :kod ;
     upper:label "Organisationsenhet"@en ;
 .
 
@@ -419,11 +419,11 @@
     a upper:DirectClass ;
     upper:property :id ;
     upper:property :version ;
+    upper:property :idTyp ;
     upper:property :avserOrganisationsenhet ;
     upper:property :harBehorighetsroller ;
     upper:property :harErbjudnaDatamangder ;
     upper:property :harYrkesroll ;
-    upper:property :idTyp ;
     upper:property :tillhorBehorighetsgrupper ;
     upper:property :tillhorErbjudanDatamangdsgrupper ;
     upper:property :tillhorTeam ;
@@ -432,29 +432,29 @@
 
 :ErbjudanDatamangdsgrupper
     a upper:DirectClass ;
-    upper:property :beskrivning ;
     upper:property :id ;
-    upper:property :namn ;
     upper:property :version ;
+    upper:property :beskrivning ;
+    upper:property :namn ;
     upper:property :erbjudnaDatamangdsgrupper ;
     upper:label "ErbjudanDatamangdsgrupper"@en ;
 .
 
 :Formanstyp
     a upper:DirectClass ;
-    upper:property :formanstyp ;
     upper:property :id ;
     upper:property :version ;
+    upper:property :formanstyp ;
     upper:label "Formanstyp"@en ;
 .
 
 :Erbjudande
     a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
     upper:property :beskrivning ;
     upper:property :erbjudande ;
-    upper:property :id ;
     upper:property :ingarIForman ;
-    upper:property :version ;
     upper:label "Erbjudande"@en ;
 .
 
@@ -468,23 +468,23 @@
 
 :Forman
     a upper:DirectClass ;
-    upper:property :formanstyp ;
     upper:property :id ;
     upper:property :version ;
     upper:property :beskrivning ;
-    upper:property :produktnamn ;
     upper:property :tillhorOrganisationsenhet ;
+    upper:property :formanstyp ;
+    upper:property :produktnamn ;
     upper:label "Forman"@en ;
 .
 
 :Sakfraga
     a upper:DirectClass ;
-    upper:property :beskrivning ;
     upper:property :id ;
+    upper:property :version ;
+    upper:property :beskrivning ;
     upper:property :ingarIFormaner ;
     upper:property :sakfragetyper ;
     upper:property :sakfragetypkategori ;
-    upper:property :version ;
     upper:label "Sakfraga"@en ;
 .
 
@@ -500,16 +500,16 @@
 :Sakfragetypkategori
     a upper:DirectClass ;
     upper:property :id ;
-    upper:property :sakfragetypkategori ;
     upper:property :version ;
+    upper:property :sakfragetypkategori ;
     upper:label "Sakfragetypkategori"@en ;
 .
 
 :HandlaggningsIDTyp
     a upper:DirectClass ;
-    upper:property :beloppstyp ;
     upper:property :id ;
     upper:property :version ;
+    upper:property :beloppstyp ;
     upper:label "HandlaggningsIDTyp"@en ;
 .
 
@@ -517,11 +517,11 @@
     a upper:DirectClass ;
     upper:property :id ;
     upper:property :version ;
+    upper:property :behorighetsroll ;
+    upper:property :namn ;
     upper:property :applikationsId ;
     upper:property :avserRegler ;
-    upper:property :behorighetsroll ;
     upper:property :guiURL ;
-    upper:property :namn ;
     upper:property :uppgiftsbeskrivning ;
     upper:property :verksamhetslogik ;
     upper:label "Uppgiftsspecifikation"@en ;
@@ -530,18 +530,18 @@
 :Handlaggningsspecifikation
     a upper:DirectClass ;
     upper:property :id ;
-    upper:property :anvanderUppgiftsspecifikationer ;
     upper:property :beskrivning ;
     upper:property :bpmnUrl ;
     upper:property :namn ;
+    upper:property :anvanderUppgiftsspecifikationer ;
     upper:label "Handlaggningsspecifikation"@en ;
 .
 
 :FSSAInformationstyp
     a upper:DirectClass ;
-    upper:property :fssaInfo ;
     upper:property :id ;
     upper:property :version ;
+    upper:property :fssaInfo ;
     upper:label "FSSAInformationstyp"@en ;
 .
 
@@ -560,18 +560,18 @@
 
 :Uppgiftsstatustyp
     a upper:DirectClass ;
-    upper:property :uppgiftsstatus ;
     upper:property :id ;
     upper:property :version ;
+    upper:property :uppgiftsstatus ;
     upper:label "Uppgiftsstatustyp"@en ;
 .
 
 :Regel
     a upper:DirectClass ;
     upper:property :id ;
+    upper:property :version ;
     upper:property :lagrum ;
     upper:property :objektId ;
-    upper:property :version ;
     upper:label "Regel"@en ;
 .
 
@@ -586,8 +586,8 @@
 :Regelutfallstyp
     a upper:DirectClass ;
     upper:property :id ;
-    upper:property :regelutfall ;
     upper:property :version ;
+    upper:property :regelutfall ;
     upper:label "Regelutfallstyp"@en ;
 .
 
@@ -595,12 +595,12 @@
     a upper:DirectClass ;
     upper:property :id ;
     upper:property :version ;
-    upper:property :avserBesvarAvAnvandare ;
+    upper:property :skapadTS ;
     upper:property :avserHandlaggningsspecifikation ;
+    upper:property :avserBesvarAvAnvandare ;
     upper:property :avslutadTS ;
     upper:property :handlaggningsIdTyp ;
     upper:property :handlaggningsIdVarde ;
-    upper:property :skapadTS ;
     upper:label "Handlaggning"@en ;
 .
 
@@ -614,9 +614,9 @@
 
 :Aktivitet
     a upper:DirectClass ;
+    upper:property :aktivitetID ;
     upper:property :beskrivning ;
     upper:property :namn ;
-    upper:property :aktivitetID ;
     upper:label "Aktivitet"@en ;
 .
 
@@ -632,11 +632,11 @@
 
 :SpecificeradErsattningsperiod
     a upper:DirectClass ;
-    upper:property :from ;
     upper:property :id ;
-    upper:property :tom ;
     upper:property :version ;
     upper:property :gallerForAnstallning ;
+    upper:property :from ;
+    upper:property :tom ;
     upper:property :gallerForUtbetaldAllmanErsattning ;
     upper:property :ersattningsSummaForPeriod ;
     upper:label "SpecificeradErsattningsperiod"@en ;
@@ -652,19 +652,19 @@
 
 :Organisation
     a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
     upper:property :juridiskFormkod ;
     upper:property :organisationsFormkod ;
     upper:property :organisationsIdentitetskod ;
-    upper:property :id ;
-    upper:property :version ;
     upper:label "Organisation"@en ;
 .
 
 :ErsattningsradTyp
     a upper:DirectClass ;
-    upper:property :ersattningsradTyp ;
     upper:property :id ;
     upper:property :version ;
+    upper:property :ersattningsradTyp ;
     upper:label "ErsattningsradTyp"@en ;
 .
 
@@ -678,10 +678,10 @@
 
 :UtbetaldAllmanErsattning
     a upper:DirectClass ;
-    upper:property :from ;
     upper:property :id ;
-    upper:property :tom ;
     upper:property :version ;
+    upper:property :from ;
+    upper:property :tom ;
     upper:property :ersattningsSummaForPeriod ;
     upper:label "UtbetaldAllmanErsattning"@en ;
 .
@@ -689,25 +689,25 @@
 :JuridiskFormkod
     a upper:DirectClass ;
     upper:property :id ;
-    upper:property :kod ;
     upper:property :version ;
+    upper:property :kod ;
     upper:label "JuridiskFormkod"@en ;
 .
 
 :OrganisationsForm
     a upper:DirectClass ;
     upper:property :id ;
-    upper:property :kod ;
     upper:property :version ;
+    upper:property :kod ;
     upper:label "OrganisationsForm"@en ;
 .
 
 :OrganisationsIdentitet
     a upper:DirectClass ;
-    upper:property :varde ;
     upper:property :id ;
-    upper:property :kod ;
     upper:property :version ;
+    upper:property :kod ;
+    upper:property :varde ;
     upper:label "OrganisationsIdentitet"@en ;
 .
 
@@ -721,9 +721,9 @@
     a upper:DirectClass ;
     upper:property :id ;
     upper:property :version ;
+    upper:property :idTyp ;
     upper:property :arEnIndivid ;
     upper:property :fysiskPerson ;
-    upper:property :idTyp ;
     upper:property :juridiskPersonForOrganisation ;
     upper:label "Persontyp"@en ;
 .
@@ -738,9 +738,9 @@
 
 :SFBInkomsttyp
     a upper:DirectClass ;
-    upper:property :SFBInkomstTyp ;
     upper:property :id ;
     upper:property :version ;
+    upper:property :SFBInkomstTyp ;
     upper:label "SFBInkomsttyp"@en ;
 .
 
@@ -755,8 +755,8 @@
 :AnledningIngenBidragssparr
     a upper:DirectClass ;
     upper:property :id ;
-    upper:property :ingenSparrAnledning ;
     upper:property :version ;
+    upper:property :ingenSparrAnledning ;
     upper:label "AnledningIngenBidragssparr"@en ;
 .
 
@@ -770,9 +770,9 @@
 
 :Beloppstyper
     a upper:DirectClass ;
-    upper:property :beloppstyper ;
     upper:property :id ;
     upper:property :version ;
+    upper:property :beloppstyper ;
     upper:label "Beloppstyper"@en ;
 .
 
@@ -784,29 +784,29 @@
 
 :Ersattning
     a upper:DirectClass ;
+    upper:property :periodisering ;
     upper:property :berakningsgrunder ;
     upper:property :beloppsTyp ;
     upper:property :ersattningsBelopp ;
     upper:property :omfattningProcent ;
-    upper:property :periodisering ;
     upper:property :samordnasMedErsattningar ;
     upper:label "Ersattning"@en ;
 .
 
 :Stallningstagande
     a upper:DirectClass ;
-    upper:property :beskrivning ;
     upper:property :id ;
-    upper:property :stallningstagandetyp ;
     upper:property :version ;
+    upper:property :beskrivning ;
+    upper:property :stallningstagandetyp ;
     upper:label "Stallningstagande"@en ;
 .
 
 :Stallningstagandetyp
     a upper:DirectClass ;
     upper:property :id ;
-    upper:property :stallningstagandetyp ;
     upper:property :version ;
+    upper:property :stallningstagandetyp ;
     upper:label "Stallningstagandetyp"@en ;
 .
 
@@ -828,17 +828,17 @@
 
 :Berakningsgrunder
     a upper:DirectClass ;
-    upper:property :berakningsgrunder ;
     upper:property :id ;
     upper:property :version ;
+    upper:property :berakningsgrunder ;
     upper:label "Berakningsgrunder"@en ;
 .
 
 :PlikttypForTjanstgoringITotalforsvaret
     a upper:DirectClass ;
     upper:property :id ;
-    upper:property :platstyp ;
     upper:property :version ;
+    upper:property :platstyp ;
     upper:label "PlikttypForTjanstgoringITotalforsvaret"@en ;
 .
 
@@ -884,22 +884,22 @@
 
 :SakfragaStallningstagande
     a upper:DirectClass ;
+    upper:property :id ;
+    upper:property :version ;
+    upper:property :from ;
+    upper:property :tom ;
     upper:property :avserPersontyper ;
     upper:property :avslagPaGrundAvRegler ;
     upper:property :faststallsForYrkande ;
-    upper:property :from ;
     upper:property :godkandRegler ;
-    upper:property :id ;
-    upper:property :tom ;
-    upper:property :version ;
     upper:property :yrkandestatus ;
     upper:label "SakfragaStallningstagande"@en ;
 .
 
 :RollIYrkande
     a upper:DirectClass ;
-    upper:property :avserPersontyp ;
     upper:property :id ;
+    upper:property :avserPersontyp ;
     upper:property :individ ;
     upper:property :yrkanderoll ;
     upper:property :avserYrkande ;
@@ -908,17 +908,17 @@
 
 :Avslutstyp
     a upper:DirectClass ;
-    upper:property :avslutstyp ;
     upper:property :id ;
     upper:property :version ;
+    upper:property :avslutstyp ;
     upper:label "Avslutstyp"@en ;
 .
 
 :Beslutsrad
     a upper:DirectClass ;
-    upper:property :avslutstyp ;
     upper:property :id ;
     upper:property :version ;
+    upper:property :avslutstyp ;
     upper:property :beslutstyp ;
     upper:property :beslutsutfall ;
     upper:property :harSakfragaStallningstaganden ;
@@ -950,7 +950,7 @@
 
 :behorighetsgrupp
     a upper:Relationship ;
-    upper:class :https://data.fk.se/mimer/se ;
+    upper:class :Behorighetsgrupper ;
     upper:label "behorighetsgrupp"@en ;
 .
 
@@ -968,7 +968,7 @@
 
 :behorighetsroll
     a upper:Relationship ;
-    upper:class :https://data.fk.se/mimer/se ;
+    upper:class :Behorighetsroller ;
     upper:label "behorighetsroll"@en ;
 .
 
@@ -994,18 +994,6 @@
     a upper:Attribute ;
     upper:datatype xsd:string ;
     upper:label "rubrik"@en ;
-.
-
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
-.
-
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
 .
 
 :skapadTS
@@ -1104,12 +1092,6 @@
     upper:label "harAktiviteter"@en ;
 .
 
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
-.
-
 :namn
     a upper:Attribute ;
     upper:datatype xsd:string ;
@@ -1120,18 +1102,6 @@
     a upper:Relationship ;
     upper:class :FysiskPerson ;
     upper:label "avserFysiskPerson"@en ;
-.
-
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
-.
-
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
 .
 
 :avserAnstallningar
@@ -1152,18 +1122,6 @@
     upper:label "gallerForAnstallning"@en ;
 .
 
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
-.
-
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
-.
-
 :typAvLoneforman
     a upper:Relationship ;
     upper:class :AvtaladLoneformanstyp ;
@@ -1174,12 +1132,6 @@
     a upper:Attribute ;
     upper:datatype xsd:integer ;
     upper:label "anstallninggradProcent"@en ;
-.
-
-:avserFysiskPerson
-    a upper:Relationship ;
-    upper:class :FysiskPerson ;
-    upper:label "avserFysiskPerson"@en ;
 .
 
 :avserRoll
@@ -1224,12 +1176,6 @@
     upper:label "from"@en ;
 .
 
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
-.
-
 :tillhorSpecificeradErsattningsperiod
     a upper:Relationship ;
     upper:class :SpecificeradErsattningsperiod ;
@@ -1240,12 +1186,6 @@
     a upper:Attribute ;
     upper:datatype xsd:dateTime ;
     upper:label "tom"@en ;
-.
-
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
 .
 
 :ersattningstyp
@@ -1272,12 +1212,6 @@
     upper:label "harFunktionIOrganisation"@en ;
 .
 
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
-.
-
 :juridiskFormkod
     a upper:Relationship ;
     upper:class :JuridiskFormkod ;
@@ -1294,12 +1228,6 @@
     a upper:Relationship ;
     upper:class :OrganisationsIdentitet ;
     upper:label "organisationsIdentitet"@en ;
-.
-
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
 .
 
 :careOf
@@ -1330,18 +1258,6 @@
     a upper:Attribute ;
     upper:datatype xsd:string ;
     upper:label "utdelningsadress2"@en ;
-.
-
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
-.
-
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
 .
 
 :avdelningNamn
@@ -1384,12 +1300,6 @@
     a upper:Attribute ;
     upper:datatype xsd:string ;
     upper:label "referensTillAnnanForfattning"@en ;
-.
-
-:rubrik
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "rubrik"@en ;
 .
 
 :underavdelningNamn
@@ -1518,12 +1428,6 @@
     upper:label "stallningstagande"@en ;
 .
 
-:avserInkomst
-    a upper:Relationship ;
-    upper:class :Inkomst ;
-    upper:label "avserInkomst"@en ;
-.
-
 :bedomdInkomstBelopp
     a upper:Attribute ;
     upper:datatype xsd:double ;
@@ -1552,12 +1456,6 @@
     a upper:Relationship ;
     upper:class :StallningstagnaInkomsttyper ;
     upper:label "bedomdInkomstTyp"@en ;
-.
-
-:periodisering
-    a upper:Relationship ;
-    upper:class :Periodisering ;
-    upper:label "periodisering"@en ;
 .
 
 :bedomdIKostnadTyp
@@ -1602,22 +1500,10 @@
     upper:label "uppfylltKravPaKvalificering"@en ;
 .
 
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
-.
-
 :platstyp
     a upper:Relationship ;
     upper:class :TjanstgoringsPlatstyper ;
     upper:label "platstyp"@en ;
-.
-
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
 .
 
 :tjanstgoringstyp
@@ -1656,40 +1542,16 @@
     upper:label "avsikt"@en ;
 .
 
-:from
-    a upper:Attribute ;
-    upper:datatype xsd:dateTime ;
-    upper:label "from"@en ;
-.
-
 :hanterasIHandlaggningar
     a upper:Relationship ;
     upper:class :Handlaggning ;
     upper:label "hanterasIHandlaggningar"@en ;
 .
 
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
-.
-
 :rollerIYrkandet
     a upper:Relationship ;
     upper:class :RollIYrkande ;
     upper:label "rollerIYrkandet"@en ;
-.
-
-:tom
-    a upper:Attribute ;
-    upper:datatype xsd:dateTime ;
-    upper:label "tom"@en ;
-.
-
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
 .
 
 :yrkandeDatum
@@ -1710,18 +1572,6 @@
     upper:label "avserPersontyp"@en ;
 .
 
-:avserSakfragaStallningstagande
-    a upper:Relationship ;
-    upper:class :SakfragaStallningstagande ;
-    upper:label "avserSakfragaStallningstagande"@en ;
-.
-
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
-.
-
 :individ
     a upper:Relationship ;
     upper:class :IDTyp ;
@@ -1734,40 +1584,16 @@
     upper:label "yrkanderoll"@en ;
 .
 
-:beskrivning
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "beskrivning"@en ;
-.
-
 :erbjudnaDatamangder
     a upper:Relationship ;
-    upper:class :https://data.fk.se/mimer/se ;
+    upper:class :ErbjudnaDatamangder ;
     upper:label "erbjudnaDatamangder"@en ;
-.
-
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
-.
-
-:namn
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "namn"@en ;
 .
 
 :tillhorErbjudanDatamangdsgrupp
     a upper:Relationship ;
     upper:class :ErbjudanDatamangdsgrupper ;
     upper:label "tillhorErbjudanDatamangdsgrupp"@en ;
-.
-
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
 .
 
 :kontaktAnvandare
@@ -1788,28 +1614,10 @@
     upper:label "tillhorOrganisationsenhet"@en ;
 .
 
-:namn
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "namn"@en ;
-.
-
 :tillhorOrganisation
     a upper:Relationship ;
     upper:class :Organisation ;
     upper:label "tillhorOrganisation"@en ;
-.
-
-:tillhorOrganisationsenhet
-    a upper:Relationship ;
-    upper:class :Organisationsenhet ;
-    upper:label "tillhorOrganisationsenhet"@en ;
-.
-
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
 .
 
 :kod
@@ -1818,28 +1626,10 @@
     upper:label "kod"@en ;
 .
 
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
-.
-
 :yrkesroll
     a upper:Relationship ;
     upper:class :Yrkesroller ;
     upper:label "yrkesroll"@en ;
-.
-
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
-.
-
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
 .
 
 :avserOrganisation
@@ -1850,7 +1640,7 @@
 
 :idTyp
     a upper:Relationship ;
-    upper:class :IDTyper ;
+    upper:class :IDTyp ;
     upper:label "idTyp"@en ;
 .
 
@@ -1884,12 +1674,6 @@
     upper:label "harYrkesroll"@en ;
 .
 
-:idTyp
-    a upper:Relationship ;
-    upper:class :IDTyp ;
-    upper:label "idTyp"@en ;
-.
-
 :tillhorBehorighetsgrupper
     a upper:Relationship ;
     upper:class :Behorighetsgrupper ;
@@ -1916,26 +1700,8 @@
 
 :formanstyp
     a upper:Relationship ;
-    upper:class :https://data.fk.se/mimer/se ;
+    upper:class :Formanstyp ;
     upper:label "formanstyp"@en ;
-.
-
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
-.
-
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
-.
-
-:beskrivning
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "beskrivning"@en ;
 .
 
 :erbjudande
@@ -1944,22 +1710,10 @@
     upper:label "erbjudande"@en ;
 .
 
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
-.
-
 :ingarIForman
     a upper:Relationship ;
     upper:class :Forman ;
     upper:label "ingarIForman"@en ;
-.
-
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
 .
 
 :erbjudandenamn
@@ -1968,34 +1722,10 @@
     upper:label "erbjudandenamn"@en ;
 .
 
-:beskrivning
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "beskrivning"@en ;
-.
-
 :produktnamn
     a upper:Attribute ;
     upper:datatype xsd:string ;
     upper:label "produktnamn"@en ;
-.
-
-:tillhorOrganisationsenhet
-    a upper:Relationship ;
-    upper:class :Organisationsenhet ;
-    upper:label "tillhorOrganisationsenhet"@en ;
-.
-
-:beskrivning
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "beskrivning"@en ;
-.
-
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
 .
 
 :ingarIFormaner
@@ -2016,12 +1746,6 @@
     upper:label "sakfragetypkategori"@en ;
 .
 
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
-.
-
 :anknytandeSakfraga
     a upper:Relationship ;
     upper:class :AnknytandeSakfragetyper ;
@@ -2040,18 +1764,6 @@
     upper:label "beloppstyp"@en ;
 .
 
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
-.
-
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
-.
-
 :applikationsId
     a upper:Attribute ;
     upper:datatype xsd:string ;
@@ -2064,22 +1776,10 @@
     upper:label "avserRegler"@en ;
 .
 
-:behorighetsroll
-    a upper:Relationship ;
-    upper:class :Behorighetsroller ;
-    upper:label "behorighetsroll"@en ;
-.
-
 :guiURL
     a upper:Attribute ;
     upper:datatype xsd:string ;
     upper:label "guiURL"@en ;
-.
-
-:namn
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "namn"@en ;
 .
 
 :uppgiftsbeskrivning
@@ -2100,34 +1800,10 @@
     upper:label "anvanderUppgiftsspecifikationer"@en ;
 .
 
-:beskrivning
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "beskrivning"@en ;
-.
-
-:bpmnUrl
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "bpmnUrl"@en ;
-.
-
-:namn
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "namn"@en ;
-.
-
 :typ
     a upper:Relationship ;
     upper:class :Regelutfallstyp ;
     upper:label "typ"@en ;
-.
-
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
 .
 
 :lagrum
@@ -2140,12 +1816,6 @@
     a upper:Attribute ;
     upper:datatype xsd:string ;
     upper:label "objektId"@en ;
-.
-
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
 .
 
 :avserInformationsobjekt
@@ -2166,34 +1836,16 @@
     upper:label "informationsobjektsVersion"@en ;
 .
 
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
-.
-
 :regelutfall
     a upper:Relationship ;
     upper:class :Regelutfallstyper ;
     upper:label "regelutfall"@en ;
 .
 
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
-.
-
 :avserBesvarAvAnvandare
     a upper:Relationship ;
     upper:class :Anvandare ;
     upper:label "avserBesvarAvAnvandare"@en ;
-.
-
-:avserHandlaggningsspecifikation
-    a upper:Relationship ;
-    upper:class :Handlaggningsspecifikation ;
-    upper:label "avserHandlaggningsspecifikation"@en ;
 .
 
 :avslutadTS
@@ -2212,24 +1864,6 @@
     a upper:Attribute ;
     upper:datatype xsd:string ;
     upper:label "handlaggningsIdVarde"@en ;
-.
-
-:skapadTS
-    a upper:Attribute ;
-    upper:datatype xsd:dateTime ;
-    upper:label "skapadTS"@en ;
-.
-
-:verksamhetslogik
-    a upper:Relationship ;
-    upper:class :Verksamhetslogik ;
-    upper:label "verksamhetslogik"@en ;
-.
-
-:aktivitetID
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "aktivitetID"@en ;
 .
 
 :adress
@@ -2256,12 +1890,6 @@
     upper:label "kon"@en ;
 .
 
-:gallerForAnstallning
-    a upper:Relationship ;
-    upper:class :Anstallning ;
-    upper:label "gallerForAnstallning"@en ;
-.
-
 :gallerForUtbetaldAllmanErsattning
     a upper:Relationship ;
     upper:class :UtbetaldAllmanErsattning ;
@@ -2280,28 +1908,10 @@
     upper:label "loneforman"@en ;
 .
 
-:juridiskFormkod
-    a upper:Relationship ;
-    upper:class :JuridiskFormkod ;
-    upper:label "juridiskFormkod"@en ;
-.
-
-:organisationsFormkod
-    a upper:Relationship ;
-    upper:class :OrganisationsForm ;
-    upper:label "organisationsFormkod"@en ;
-.
-
 :organisationsIdentitetskod
     a upper:Relationship ;
     upper:class :OrganisationsIdentitet ;
     upper:label "organisationsIdentitetskod"@en ;
-.
-
-:varde
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "varde"@en ;
 .
 
 :arEnIndivid
@@ -2316,12 +1926,6 @@
     upper:label "fysiskPerson"@en ;
 .
 
-:idTyp
-    a upper:Relationship ;
-    upper:class :IDTyp ;
-    upper:label "idTyp"@en ;
-.
-
 :juridiskPersonForOrganisation
     a upper:Relationship ;
     upper:class :Organisation ;
@@ -2334,40 +1938,10 @@
     upper:label "status"@en ;
 .
 
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
-.
-
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
-.
-
-:periodisering
-    a upper:Relationship ;
-    upper:class :https://data.fk.se/mimer/se ;
-    upper:label "periodisering"@en ;
-.
-
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
-.
-
 :ingenSparrAnledning
     a upper:Relationship ;
     upper:class :IngenSparrAnledning ;
     upper:label "ingenSparrAnledning"@en ;
-.
-
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
 .
 
 :bidragssparrgrund
@@ -2378,20 +1952,8 @@
 
 :beloppstyper
     a upper:Relationship ;
-    upper:class :https://data.fk.se/mimer/se ;
+    upper:class :Beloppstyper ;
     upper:label "beloppstyper"@en ;
-.
-
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
-.
-
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
 .
 
 :berakningsgrunder
@@ -2418,40 +1980,16 @@
     upper:label "omfattningProcent"@en ;
 .
 
-:periodisering
-    a upper:Relationship ;
-    upper:class :Periodisering ;
-    upper:label "periodisering"@en ;
-.
-
 :samordnasMedErsattningar
     a upper:Relationship ;
     upper:class :Ersattning ;
     upper:label "samordnasMedErsattningar"@en ;
 .
 
-:beskrivning
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "beskrivning"@en ;
-.
-
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
-.
-
 :stallningstagandetyp
     a upper:Relationship ;
     upper:class :Stallningstagandetyper ;
     upper:label "stallningstagandetyp"@en ;
-.
-
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
 .
 
 :bedomdInkomst
@@ -2464,18 +2002,6 @@
     a upper:Relationship ;
     upper:class :BedomdKostnad ;
     upper:label "bedomdKostnad"@en ;
-.
-
-:berakningsgrunder
-    a upper:Relationship ;
-    upper:class :https://data.fk.se/mimer/se ;
-    upper:label "berakningsgrunder"@en ;
-.
-
-:avserOrganisationsenhet
-    a upper:Relationship ;
-    upper:class :Organisationsenhet ;
-    upper:label "avserOrganisationsenhet"@en ;
 .
 
 :avserPerson
@@ -2526,18 +2052,6 @@
     upper:label "avsiktstyp"@en ;
 .
 
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
-.
-
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
-.
-
 :beslutsDatum
     a upper:Attribute ;
     upper:datatype xsd:dateTime ;
@@ -2574,34 +2088,10 @@
     upper:label "faststallsForYrkande"@en ;
 .
 
-:from
-    a upper:Attribute ;
-    upper:datatype xsd:dateTime ;
-    upper:label "from"@en ;
-.
-
 :godkandRegler
     a upper:Relationship ;
     upper:class :Regel ;
     upper:label "godkandRegler"@en ;
-.
-
-:id
-    a upper:Attribute ;
-    upper:datatype xsd:string ;
-    upper:label "id"@en ;
-.
-
-:tom
-    a upper:Attribute ;
-    upper:datatype xsd:dateTime ;
-    upper:label "tom"@en ;
-.
-
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
 .
 
 :yrkandestatus
@@ -2646,30 +2136,24 @@
     upper:label "versionsbesluttyp"@en ;
 .
 
-:version
-    a upper:Attribute ;
-    upper:datatype xsd:integer ;
-    upper:label "version"@en ;
-.
-
 :yrkanderollTyp
     a upper:Relationship ;
     upper:class :YrkanderollTyper ;
     upper:label "yrkanderollTyp"@en ;
 .
 
-:Land
+:Behorighetsgrupper
     a upper:Enumeration ;
     upper:oneOf (
     ) ;
-    upper:label "Land"@en ;
+    upper:label "Behorighetsgrupper"@en ;
 .
 
-:Periodisering
+:Behorighetsroller
     a upper:Enumeration ;
     upper:oneOf (
     ) ;
-    upper:label "Periodisering"@en ;
+    upper:label "Behorighetsroller"@en ;
 .
 
 :ErbjudnaDatamangder
@@ -2686,25 +2170,11 @@
     upper:label "Formanstyp"@en ;
 .
 
-:Foretradartyp
+:Periodisering
     a upper:Enumeration ;
     upper:oneOf (
     ) ;
-    upper:label "Foretradartyp"@en ;
-.
-
-:Funktionarstyp
-    a upper:Enumeration ;
-    upper:oneOf (
-    ) ;
-    upper:label "Funktionarstyp"@en ;
-.
-
-:Berakningsgrunder
-    a upper:Enumeration ;
-    upper:oneOf (
-    ) ;
-    upper:label "Berakningsgrunder"@en ;
+    upper:label "Periodisering"@en ;
 .
 
 :Beloppstyper
@@ -2714,25 +2184,39 @@
     upper:label "Beloppstyper"@en ;
 .
 
-:ErbjudnaDatamangdsgrupper
+:Berakningsgrunder
     a upper:Enumeration ;
     upper:oneOf (
     ) ;
-    upper:label "ErbjudnaDatamangdsgrupper"@en ;
+    upper:label "Berakningsgrunder"@en ;
 .
 
-:Behorighetsroller
+:SFBInkomsttyper
     a upper:Enumeration ;
     upper:oneOf (
     ) ;
-    upper:label "Behorighetsroller"@en ;
+    upper:label "SFBInkomsttyper"@en ;
 .
 
-:Behorighetsgrupper
+:TjanstgoringsPlatstyper
     a upper:Enumeration ;
     upper:oneOf (
     ) ;
-    upper:label "Behorighetsgrupper"@en ;
+    upper:label "TjanstgoringsPlatstyper"@en ;
+.
+
+:Tjanstgoringstyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Tjanstgoringstyper"@en ;
+.
+
+:JuridiskFormkodKoder
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "JuridiskFormkodKoder"@en ;
 .
 
 :Yrkesroller
@@ -2740,6 +2224,20 @@
     upper:oneOf (
     ) ;
     upper:label "Yrkesroller"@en ;
+.
+
+:IDTyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "IDTyper"@en ;
+.
+
+:ErbjudnaDatamangdsgrupper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "ErbjudnaDatamangdsgrupper"@en ;
 .
 
 :Erbjudandenamn
@@ -2777,6 +2275,13 @@
     upper:label "Regelutfallstyper"@en ;
 .
 
+:Verksamhetslogik
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Verksamhetslogik"@en ;
+.
+
 :Loneformaner
     a upper:Enumeration ;
     upper:oneOf (
@@ -2784,11 +2289,109 @@
     upper:label "Loneformaner"@en ;
 .
 
-:IDTyper
+:YrkandeStatus
     a upper:Enumeration ;
     upper:oneOf (
     ) ;
-    upper:label "IDTyper"@en ;
+    upper:label "YrkandeStatus"@en ;
+.
+
+:IngenSparrAnledning
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "IngenSparrAnledning"@en ;
+.
+
+:Bidragssparrgrund
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Bidragssparrgrund"@en ;
+.
+
+:Stallningstagandetyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Stallningstagandetyper"@en ;
+.
+
+:BedomdInkomst
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "BedomdInkomst"@en ;
+.
+
+:BedomdKostnad
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "BedomdKostnad"@en ;
+.
+
+:TjanstgoringsStatustyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "TjanstgoringsStatustyper"@en ;
+.
+
+:Avsiktstyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Avsiktstyper"@en ;
+.
+
+:Avslutstyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Avslutstyper"@en ;
+.
+
+:Beslutsutfall
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Beslutsutfall"@en ;
+.
+
+:Versionsbeslutstyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Versionsbeslutstyper"@en ;
+.
+
+:YrkanderollTyper
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "YrkanderollTyper"@en ;
+.
+
+:Land
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Land"@en ;
+.
+
+:Foretradartyp
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Foretradartyp"@en ;
+.
+
+:Funktionarstyp
+    a upper:Enumeration ;
+    upper:oneOf (
+    ) ;
+    upper:label "Funktionarstyp"@en ;
 .
 
 :Uppgiftsstatus
@@ -2796,13 +2399,6 @@
     upper:oneOf (
     ) ;
     upper:label "Uppgiftsstatus"@en ;
-.
-
-:Verksamhetslogik
-    a upper:Enumeration ;
-    upper:oneOf (
-    ) ;
-    upper:label "Verksamhetslogik"@en ;
 .
 
 :Teamtyper
@@ -2840,13 +2436,6 @@
     upper:label "Ersattningstyper"@en ;
 .
 
-:JuridiskFormkodKoder
-    a upper:Enumeration ;
-    upper:oneOf (
-    ) ;
-    upper:label "JuridiskFormkodKoder"@en ;
-.
-
 :OrganisationsFormkoder
     a upper:Enumeration ;
     upper:oneOf (
@@ -2861,114 +2450,9 @@
     upper:label "OrganisationsIdentitetsKoder"@en ;
 .
 
-:Bidragssparrgrund
-    a upper:Enumeration ;
-    upper:oneOf (
-    ) ;
-    upper:label "Bidragssparrgrund"@en ;
-.
-
-:IngenSparrAnledning
-    a upper:Enumeration ;
-    upper:oneOf (
-    ) ;
-    upper:label "IngenSparrAnledning"@en ;
-.
-
-:SFBInkomsttyper
-    a upper:Enumeration ;
-    upper:oneOf (
-    ) ;
-    upper:label "SFBInkomsttyper"@en ;
-.
-
-:BedomdInkomst
-    a upper:Enumeration ;
-    upper:oneOf (
-    ) ;
-    upper:label "BedomdInkomst"@en ;
-.
-
-:BedomdKostnad
-    a upper:Enumeration ;
-    upper:oneOf (
-    ) ;
-    upper:label "BedomdKostnad"@en ;
-.
-
-:Stallningstagandetyper
-    a upper:Enumeration ;
-    upper:oneOf (
-    ) ;
-    upper:label "Stallningstagandetyper"@en ;
-.
-
-:TjanstgoringsPlatstyper
-    a upper:Enumeration ;
-    upper:oneOf (
-    ) ;
-    upper:label "TjanstgoringsPlatstyper"@en ;
-.
-
 :TjanstgoringsPlikttyper
     a upper:Enumeration ;
     upper:oneOf (
     ) ;
     upper:label "TjanstgoringsPlikttyper"@en ;
-.
-
-:TjanstgoringsStatustyper
-    a upper:Enumeration ;
-    upper:oneOf (
-    ) ;
-    upper:label "TjanstgoringsStatustyper"@en ;
-.
-
-:Tjanstgoringstyper
-    a upper:Enumeration ;
-    upper:oneOf (
-    ) ;
-    upper:label "Tjanstgoringstyper"@en ;
-.
-
-:Avsiktstyper
-    a upper:Enumeration ;
-    upper:oneOf (
-    ) ;
-    upper:label "Avsiktstyper"@en ;
-.
-
-:YrkandeStatus
-    a upper:Enumeration ;
-    upper:oneOf (
-    ) ;
-    upper:label "YrkandeStatus"@en ;
-.
-
-:YrkanderollTyper
-    a upper:Enumeration ;
-    upper:oneOf (
-    ) ;
-    upper:label "YrkanderollTyper"@en ;
-.
-
-:Avslutstyper
-    a upper:Enumeration ;
-    upper:oneOf (
-    ) ;
-    upper:label "Avslutstyper"@en ;
-.
-
-:Beslutsutfall
-    a upper:Enumeration ;
-    upper:oneOf (
-    ) ;
-    upper:label "Beslutsutfall"@en ;
-.
-
-:Versionsbeslutstyper
-    a upper:Enumeration ;
-    upper:oneOf (
-    ) ;
-    upper:label "Versionsbeslutstyper"@en ;
 .
