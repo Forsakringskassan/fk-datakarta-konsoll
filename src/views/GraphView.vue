@@ -3,7 +3,7 @@ import { ref, computed, nextTick } from 'vue'
 import { Background } from '@vue-flow/background'
 import { VueFlow, useVueFlow } from '@vue-flow/core'
 import { ControlButton, Controls } from '@vue-flow/controls'
-import type { Node, Edge } from '@vue-flow/core'
+import type { Node } from '@vue-flow/core'
 
 import EnumerationNode from '@/components/EnumerationNode.vue'
 import SchemaNode from '@/components/SchemaNode.vue'
@@ -24,9 +24,9 @@ const { formModal } = useModal()
 
 const fileInput = ref<HTMLInputElement | null>(null)
 
-const nodes = computed(() => modelStore.nodes)
-const edges = computed(() => modelStore.edges)
-const domainName = computed(() => modelStore.domainName)
+const nodes = computed(() => nodeStore.nodes)
+const edges = computed(() => nodeStore.edges)
+const domainName = computed(() => nodeStore.domainName)
 
 function openFile(event: Event) {
   const input = event.target as HTMLInputElement
@@ -40,8 +40,7 @@ function openFile(event: Event) {
 
   reader.onload = async () => {
     modelStore.loadTurtle(reader.result as string)
-    const ttl = await modelStore.serialize()
-    nodeStore.ttl = ttl
+    nodeStore.rebuildFromRdf()
   }
 
   reader.readAsText(file)
@@ -50,7 +49,7 @@ function openFile(event: Event) {
 async function layoutGraph() {
   await nextTick()
 
-  modelStore.nodes = await layout(modelStore.nodes, modelStore.edges)
+  nodeStore.nodes = await layout(nodeStore.nodes, nodeStore.edges)
 }
 
 function addSchemaNode() {
@@ -77,10 +76,10 @@ function addSchemaNode() {
     },
   }
 
-  modelStore.nodes.push(newNode)
+  nodeStore.nodes.push(newNode)
 }
 
-onNodeClick(({ event, node }) => {
+onNodeClick(({ node }) => {
   nodeStore.selectNode(node.id)
 })
 
@@ -117,7 +116,7 @@ async function save() {
 
   const link = document.createElement('a')
   link.href = url
-  link.download = `${modelStore.domainName || 'model'}.ttl`
+  link.download = `${nodeStore.domainName || 'model'}.ttl`
 
   link.click()
 

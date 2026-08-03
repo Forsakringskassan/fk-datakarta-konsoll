@@ -2,39 +2,47 @@
 
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import type { Node, Edge } from '@vue-flow/core'
-
+import { useNodeStore } from '@/stores/node'
 import { upperRepository } from '@/model/upperRepository'
-import { buildVueFlowModel } from '@/model/vueFlowMapper'
 
+// Pinia store for interaction with RDF and TURTLE files.
 export const useModelStore = defineStore('model', () => {
-  const nodes = ref<Node[]>([])
-  const edges = ref<Edge[]>([])
-  const domainName = ref('')
+  const ttl = ref('')
+  const error = ref<string | null>(null)
 
-  function loadTurtle(ttl: string) {
-    upperRepository.loadTurtle(ttl)
-    refresh()
+  function loadTurtle(value: string) {
+    ttl.value = value
+
+    try {
+      upperRepository.loadTurtle(value)
+    } catch (e) {
+      error.value = String(e)
+    }
   }
 
-  function refresh() {
-    const model = buildVueFlowModel(upperRepository)
+  function updateTtl(value: string) {
+    ttl.value = value
 
-    nodes.value = model.nodes
-    edges.value = model.edges
-    domainName.value = model.domainName
+    try {
+      upperRepository.loadTurtle(value)
+      error.value = null
+
+      const nodeStore = useNodeStore()
+      nodeStore.rebuildFromRdf()
+    } catch (e) {
+      error.value = String(e)
+    }
   }
 
   async function serialize(): Promise<string> {
-    return await upperRepository.serializeTurtle()
+    return upperRepository.serializeTurtle()
   }
 
   return {
-    nodes,
-    edges,
-    domainName,
+    ttl,
+    error,
     loadTurtle,
-    refresh,
     serialize,
+    updateTtl,
   }
 })

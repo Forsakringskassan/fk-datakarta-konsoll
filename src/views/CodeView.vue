@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount, ref } from 'vue'
 import * as monaco from 'monaco-editor'
-import { useNodeStore } from '@/stores/node'
+import { useModelStore } from '@/stores/model'
 
-const nodeStore = useNodeStore()
+const modelStore = useModelStore()
 
 const editorContainer = ref<HTMLElement | null>(null)
 
 let editor: monaco.editor.IStandaloneCodeEditor | undefined
+let changeDisposable: monaco.IDisposable | undefined
+let timer: ReturnType<typeof setTimeout>
 
 onMounted(() => {
   if (!editorContainer.value) {
@@ -15,7 +17,7 @@ onMounted(() => {
   }
 
   editor = monaco.editor.create(editorContainer.value, {
-    value: nodeStore.ttl,
+    value: modelStore.ttl,
     language: 'plaintext',
     theme: 'vs-light',
     automaticLayout: true,
@@ -24,9 +26,18 @@ onMounted(() => {
     },
     fontSize: 14,
   })
+
+  changeDisposable = editor.onDidChangeModelContent(() => {
+    clearTimeout(timer)
+
+    timer = setTimeout(() => {
+      modelStore.updateTtl(editor!.getValue())
+    }, 300)
+  })
 })
 
 onBeforeUnmount(() => {
+  changeDisposable?.dispose()
   editor?.dispose()
 })
 </script>
