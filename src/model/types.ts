@@ -1,3 +1,8 @@
+export interface State {
+  selectedNode: ModelNodeData | null
+  ttl: string
+}
+
 export interface SchemaNodeData {
   kind: 'schema'
   label: string

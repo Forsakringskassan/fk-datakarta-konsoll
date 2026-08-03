@@ -38,8 +38,10 @@ function openFile(event: Event) {
 
   const reader = new FileReader()
 
-  reader.onload = () => {
+  reader.onload = async () => {
     modelStore.loadTurtle(reader.result as string)
+    const ttl = await modelStore.serialize()
+    nodeStore.ttl = ttl
   }
 
   reader.readAsText(file)
@@ -79,7 +81,7 @@ function addSchemaNode() {
 }
 
 onNodeClick(({ event, node }) => {
-  nodeStore.selectNode(node)
+  nodeStore.selectNode(node.id)
 })
 
 async function onConnect(connection) {

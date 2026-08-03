@@ -6,7 +6,14 @@ import type { SchemaNodeData, EnumerationNodeData } from '@/model/types'
 
 const nodeStore = useNodeStore()
 
-const fieldTypes = ['string', 'integer', 'boolean', 'dateTime', 'long', 'double']
+const fieldTypes = {
+  string: 'xsd:string',
+  integer: 'xsd:integer',
+  boolean: 'xsd:boolean',
+  dateTime: 'xsd:dateTime',
+  long: 'xsd:long',
+  double: 'xsd:double',
+}
 
 const schemaData = computed<SchemaNodeData | null>(() => {
   const node = nodeStore.selectedNode
@@ -19,7 +26,7 @@ const enumData = computed<EnumerationNodeData | null>(() => {
 })
 
 function addProperty() {
-  schemaData.value?.properties.push({ name: 'new_property', type: 'string' })
+  schemaData.value?.properties.push({ label: 'new_property', datatype: 'xsd:string' })
 }
 
 function removeProperty(index: number) {
@@ -45,8 +52,18 @@ function removeValue(index: number) {
 
       <h4>Fält</h4>
       <div v-for="(property, index) in schemaData.properties" :key="index" class="property-row">
-        <f-text-field v-model="property.name">Namn</f-text-field>
-        <f-select-field v-model="property.type" :options="fieldTypes">Typ</f-select-field>
+        <f-text-field v-model="property.label">Namn</f-text-field>
+        <f-select-field v-model="property.datatype">
+          <template #label>Typ</template>
+          <option
+            v-for="(value, key) in fieldTypes"
+            :key="key"
+            :value="value"
+            @change="property.datatype = $event"
+          >
+            {{ key }}
+          </option>
+        </f-select-field>
         <f-text-field v-model="property.description">Beskrivning</f-text-field>
         <f-button variant="secondary" size="small" type="button" @click="removeProperty(index)">
           Ta bort

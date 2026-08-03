@@ -1,24 +1,76 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
-import type { Node } from '@vue-flow/core'
-import type { ModelNodeData } from '@/model/types'
+import type { ModelNodeData, State } from '@/model/types'
 
-type ModelNode = Node<ModelNodeData>
+export const useNodeStore = defineStore('node', {
+  state: (): State => {
+    return {
+      selectedNode: null,
+      ttl: '',
+    }
+  },
 
-export const useNodeStore = defineStore('node', () => {
-  const selectedNode = ref<ModelNodeData | null>(null)
+  actions: {
+    updateLabel(value: string) {
+      const node = this.selectedNode
 
-  function selectNode(node: Node<ModelNode>) {
-    selectedNode.value = node
-  }
+      if (node) {
+        node.label = value
+      }
+    },
+    updateDescription(value: string) {
+      const node = this.selectedNode
 
-  function clearSelection() {
-    selectedNode.value = null
-  }
+      if (node) {
+        node.description = value
+      }
+    },
+    addAttribute(id: string) {
+      const node = this.selectedNode
 
-  return {
-    selectedNode,
-    selectNode,
-    clearSelection,
-  }
+      if (node?.kind === 'schema') {
+        node.properties.push({
+          id: id,
+          kind: 'attribute',
+          label: 'Ny egenskap',
+          minCount: 1,
+          maxCount: 1,
+          datatype: 'xsd:string',
+        })
+      }
+    },
+    removeAttribute(index: number) {
+      const node = this.selectedNode
+
+      if (node?.kind === 'schema') {
+        node.properties.splice(index, 1)
+      }
+    },
+    addEnumValue(id: string) {
+      const node = this.selectedNode
+
+      if (node?.kind === 'enumeration') {
+        node.values.push({
+          id: id,
+          label: 'Nytt värde',
+        })
+      }
+    },
+    removeEnumValue(index: number) {
+      const node = this.selectedNode
+
+      if (node?.kind === 'enumeration') {
+        node.values.splice(index, 1)
+      }
+    },
+    updateEnumValue(index: number, value: string) {
+      const node = this.selectedNode
+
+      if (node?.kind === 'enumeration') {
+        const enumVal = node.values[index]
+        if (enumVal !== undefined) {
+          enumVal.label = value
+        }
+      }
+    },
+  },
 })

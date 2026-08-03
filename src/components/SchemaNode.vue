@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import { ref, nextTick } from 'vue'
-import { Handle, Position, useVueFlow } from '@vue-flow/core'
+import { Handle, Position, useNode, useVueFlow } from '@vue-flow/core'
 import { NodeToolbar } from '@vue-flow/node-toolbar'
 import { useModal } from '@fkui/vue'
 import { FButton } from '@fkui/vue'
 
+import { useNodeStore } from '@/stores/node'
 import type { SchemaNodeData } from '@/model/types'
 
 const { removeNodes } = useVueFlow()
 const { confirmModal } = useModal()
+const { addAttribute } = useNodeStore()
 
 const fieldTypes = ['string', 'integer', 'boolean', 'dateTime', 'long', 'double']
 
@@ -50,16 +52,9 @@ async function deleteNode() {
   }
 }
 
-function addProperty() {
-  props.data.properties.push({
-    name: 'new_property',
-    type: 'string',
-  })
-}
-
 function handleToolbarAction(action: string) {
   if (action === 'Lägg till') {
-    addProperty()
+    addAttribute('')
   }
 
   if (action === 'Ta bort') {

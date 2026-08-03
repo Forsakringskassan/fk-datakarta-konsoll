@@ -5,8 +5,9 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 const bar1: NavigationMenuItem[] = [
-  { label: 'Home', route: 'app-home' },
-  { label: 'Domänmodell', route: 'graph-view' },
+  { label: 'Hem', route: 'app-home' },
+  { label: 'Graf', route: 'graph-view' },
+  { label: 'Kod', route: 'code-view' },
 ]
 
 function onSelectRoute(route: string): void {
