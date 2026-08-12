@@ -2,6 +2,7 @@
 import { onMounted, onBeforeUnmount, ref } from 'vue'
 import * as monaco from 'monaco-editor'
 import { useModelStore } from '@/stores/model'
+import { watch } from 'vue'
 
 const modelStore = useModelStore()
 
@@ -10,6 +11,19 @@ const editorContainer = ref<HTMLElement | null>(null)
 let editor: monaco.editor.IStandaloneCodeEditor | undefined
 let changeDisposable: monaco.IDisposable | undefined
 let timer: ReturnType<typeof setTimeout>
+
+watch(
+  () => modelStore.ttl,
+  (value) => {
+    if (!editor) {
+      return
+    }
+
+    if (editor.getValue() !== value) {
+      editor.setValue(value)
+    }
+  },
+)
 
 onMounted(() => {
   if (!editorContainer.value) {

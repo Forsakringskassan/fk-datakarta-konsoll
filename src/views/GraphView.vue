@@ -8,6 +8,7 @@ import type { Node } from '@vue-flow/core'
 import EnumerationNode from '@/components/EnumerationNode.vue'
 import SchemaNode from '@/components/SchemaNode.vue'
 import ModalNyRelation from '@/components/ModalNyRelation.vue'
+import type { EdgeChange } from '@vue-flow/core'
 
 import { useModal } from '@fkui/vue'
 import { useNodeStore } from '@/stores/node'
@@ -19,7 +20,7 @@ const { layout } = useLayout()
 const nodeStore = useNodeStore()
 const modelStore = useModelStore()
 
-const { addEdges, fitView, getViewport, onNodeClick } = useVueFlow()
+const { addEdges, fitView, getViewport, onNodeClick, onPaneClick } = useVueFlow()
 const { formModal } = useModal()
 
 const fileInput = ref<HTMLInputElement | null>(null)
@@ -53,34 +54,17 @@ async function layoutGraph() {
 }
 
 function addSchemaNode() {
-  const { x, y } = getViewport()
-
   const id = `schema-${Date.now()}`
 
-  const newNode: Node = {
-    id,
-    type: 'schema-node',
-    position: {
-      x,
-      y,
-    },
-    data: {
-      label: 'New Schema',
-      properties: [
-        {
-          name: 'id',
-          type: 'string',
-          description: '',
-        },
-      ],
-    },
-  }
-
-  nodeStore.nodes.push(newNode)
+  modelStore.addSchema(id, 'New Schema')
 }
 
 onNodeClick(({ node }) => {
   nodeStore.selectNode(node.id)
+})
+
+onPaneClick(() => {
+  nodeStore.selectNode(null)
 })
 
 async function onConnect(connection) {
@@ -93,14 +77,17 @@ async function onConnect(connection) {
       },
     })
 
-    addEdges({
-      id: `edge-${Date.now()}`,
-      source: connection.source,
-      target: connection.target,
-      label: result.label,
-    })
+    modelStore.addRelationship(connection.source, connection.target, result.label)
   } catch {
     // cancelled
+  }
+}
+
+function onEdgesChange(changes: EdgeChange[]) {
+  for (const change of changes) {
+    if (change.type === 'remove') {
+      modelStore.removeRelationship(change.id)
+    }
   }
 }
 
@@ -146,7 +133,7 @@ function openFilePicker() {
         :edges="edges"
         :min-zoom="0.1"
         @nodes-initialized="layoutGraph"
-        @node-click="onNodeClick"
+        @edges-change="onEdgesChange"
         @connect="onConnect"
         fit-view-on-init
       >

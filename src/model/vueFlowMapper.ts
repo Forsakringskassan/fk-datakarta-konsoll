@@ -1,6 +1,6 @@
 import type { Node, Edge } from '@vue-flow/core'
 
-import type { EnumerationNodeData, SchemaNodeData } from '@/model/types'
+import type { Attribute, EnumerationNodeData, Relationship, SchemaNodeData } from '@/model/types'
 import type { ParsedModel } from '@/model/parser'
 import { UpperRepository } from '@/model/upperRepository'
 
@@ -9,35 +9,40 @@ export function buildVueFlowModel(repository: UpperRepository): ParsedModel {
   const edges: Edge[] = []
 
   for (const cls of repository.getDirectClasses()) {
-    nodes.push({
-      id: cls.id,
-      type: 'schema-node',
-      position: { x: 0, y: 0 },
-      data: {
-        kind: 'schema',
-        label: cls.label,
-        description: cls.description,
-        properties: cls.properties.map((property) => ({
-          name: property.label,
-          type:
-            property.kind === 'attribute'
-              ? (property.datatype.split('#').pop() ?? 'string')
-              : (property.targetClass.split('#').pop() ?? 'unknown'),
-          description: property.description,
-        })),
-      },
-    })
+    const attributes: Attribute[] = []
 
     for (const property of cls.properties) {
       if (property.kind === 'relationship') {
         edges.push({
-          id: `${cls.id}-${property.targetClass}`,
+          id: property.id,
           source: cls.id,
           target: property.targetClass,
           label: property.label,
         })
       }
+      if (property.kind === 'attribute') {
+        attributes.push({
+          id: property.id,
+          label: property.label,
+          datatype: property.datatype,
+          description: property.description ?? '',
+          kind: property.kind,
+        })
+      }
     }
+
+    nodes.push({
+      id: cls.id,
+      type: 'schema-node',
+      position: { x: 0, y: 0 },
+      data: {
+        id: cls.id,
+        kind: 'schema',
+        label: cls.label,
+        description: cls.description ?? '',
+        properties: attributes,
+      },
+    })
   }
 
   for (const enumeration of repository.getEnumerations()) {

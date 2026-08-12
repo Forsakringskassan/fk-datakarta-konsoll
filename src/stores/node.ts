@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import type { Node, Edge } from '@vue-flow/core'
 import type { ModelNodeData } from '@/model/types'
 
@@ -7,10 +7,17 @@ import { buildVueFlowModel } from '@/model/vueFlowMapper'
 import { upperRepository } from '@/model/upperRepository'
 
 export const useNodeStore = defineStore('node', () => {
-  const nodes = ref<Node[]>([])
+  const nodes = ref<Node<ModelNodeData>[]>([])
   const edges = ref<Edge[]>([])
   const domainName = ref('')
-  const selectedNode = ref<ModelNodeData | null>(null)
+  const selectedNodeId = ref<string | null>(null)
+  const selectedNode = computed<ModelNodeData | null>(() => {
+    if (!selectedNodeId.value) {
+      return null
+    }
+
+    return nodes.value.find((node) => node.id === selectedNodeId.value)?.data ?? null
+  })
 
   function rebuildFromRdf() {
     const model = buildVueFlowModel(upperRepository)
@@ -20,31 +27,10 @@ export const useNodeStore = defineStore('node', () => {
     domainName.value = model.domainName
   }
 
-  function updateLabel(value: string) {
-    if (selectedNode.value) {
-      selectedNode.value.label = value
-    }
-  }
+  function selectNode(id: string): void {
+    const node = nodes.value.find((node) => node.id === id)
 
-  function updateDescription(value: string) {
-    if (selectedNode.value) {
-      selectedNode.value.description = value
-    }
-  }
-
-  function addAttribute(id: string) {
-    const node = selectedNode.value
-
-    if (node?.kind === 'schema') {
-      node.properties.push({
-        id,
-        kind: 'attribute',
-        label: 'Ny egenskap',
-        minCount: 1,
-        maxCount: 1,
-        datatype: 'xsd:string',
-      })
-    }
+    selectedNodeId.value = node ? id : null
   }
 
   return {
@@ -52,9 +38,7 @@ export const useNodeStore = defineStore('node', () => {
     edges,
     domainName,
     selectedNode,
+    selectNode,
     rebuildFromRdf,
-    updateLabel,
-    updateDescription,
-    addAttribute,
   }
 })

@@ -1,16 +1,15 @@
 <script setup lang="ts">
 import { ref, nextTick } from 'vue'
-import { Handle, Position, useNode, useVueFlow } from '@vue-flow/core'
+import { Handle, Position, useVueFlow } from '@vue-flow/core'
 import { NodeToolbar } from '@vue-flow/node-toolbar'
 import { useModal } from '@fkui/vue'
-import { FButton } from '@fkui/vue'
-
-import { useNodeStore } from '@/stores/node'
+import { FButton, FSelectField, FTextField } from '@fkui/vue'
+import { useModelStore } from '@/stores/model'
 import type { SchemaNodeData } from '@/model/types'
 
 const { removeNodes } = useVueFlow()
 const { confirmModal } = useModal()
-const { addAttribute } = useNodeStore()
+const modelStore = useModelStore()
 
 const fieldTypes = ['string', 'integer', 'boolean', 'dateTime', 'long', 'double']
 
@@ -35,7 +34,7 @@ async function startEditing() {
 }
 
 function saveLabel() {
-  props.data.label = labelInput.value
+  modelStore.updateLabel(props.id, labelInput.value)
   editingLabel.value = false
 }
 
@@ -54,7 +53,7 @@ async function deleteNode() {
 
 function handleToolbarAction(action: string) {
   if (action === 'Lägg till') {
-    addAttribute('')
+    modelStore.addAttribute(props.id, `property-${Date.now()}`)
   }
 
   if (action === 'Ta bort') {
@@ -87,13 +86,14 @@ function cancelEditing() {
       />
 
       <div v-for="(property, index) in props.data.properties" :key="index" class="property-row">
-        <input v-model="property.name" placeholder="Field name" />
+        <f-text-field v-model="property.label" inline> </f-text-field>
 
-        <select v-model="property.type">
+        <f-select-field v-if="property.kind === 'attribute'" v-model="property.datatype" inline>
+          <option disabled hidden value="">Välj...</option>
           <option v-for="type in fieldTypes" :key="type" :value="type">
             {{ type }}
           </option>
-        </select>
+        </f-select-field>
       </div>
     </div>
 

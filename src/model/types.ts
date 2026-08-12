@@ -1,15 +1,17 @@
 export interface SchemaNodeData {
   kind: 'schema'
+  id: string
   label: string
-  description?: string
+  description: string
   properties: Property[]
   toolbarVisible?: boolean
 }
 
 export interface EnumerationNodeData {
   kind: 'enumeration'
+  id: string
   label: string
-  description?: string
+  description: string
   values: EnumValue[]
   toolbarVisible?: boolean
 }
@@ -19,14 +21,14 @@ export type ModelNodeData = SchemaNodeData | EnumerationNodeData
 export interface DirectClass {
   id: string
   label: string
-  description?: string
+  description: string
   properties: Property[]
 }
 
 export interface Enumeration {
   id: string
   label: string
-  description?: string
+  description: string
   values: EnumValue[]
 }
 
@@ -38,7 +40,7 @@ export interface EnumValue {
 export interface BaseProperty {
   id: string
   label: string
-  description?: string
+  description: string
   minCount?: number
   maxCount?: number
 }

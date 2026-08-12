@@ -2,7 +2,7 @@ import { Store, Parser, DataFactory, NamedNode } from 'n3'
 import type { Term } from 'n3'
 import type { DirectClass, Attribute, Relationship, Enumeration, EnumValue } from './types'
 
-const { namedNode } = DataFactory
+const { namedNode, literal } = DataFactory
 
 const RDF_TYPE = namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type')
 const RDF_FIRST = namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#first')
@@ -14,6 +14,7 @@ const UPPER_DOMAIN = namedNode(`${UPPER_NAMESPACE}DomainModel`)
 const UPPER_DIRECT_CLASS = namedNode(`${UPPER_NAMESPACE}DirectClass`)
 const UPPER_ATTRIBUTE = namedNode(`${UPPER_NAMESPACE}Attribute`)
 const UPPER_RELATIONSHIP = namedNode(`${UPPER_NAMESPACE}Relationship`)
+const UPPER_CLASS = namedNode(`${UPPER_NAMESPACE}class`)
 const UPPER_PROPERTY = namedNode(`${UPPER_NAMESPACE}property`)
 const UPPER_LABEL = namedNode(`${UPPER_NAMESPACE}label`)
 const UPPER_DESCRIPTION = namedNode(`${UPPER_NAMESPACE}description`)
@@ -24,7 +25,6 @@ const UPPER_KEYED_ON = namedNode(`${UPPER_NAMESPACE}keyedOn`)
 const UPPER_ENUMERATION = namedNode(`${UPPER_NAMESPACE}Enumeration`)
 const UPPER_ENUM_VALUE = namedNode(`${UPPER_NAMESPACE}EnumValue`)
 const UPPER_ONE_OF = namedNode(`${UPPER_NAMESPACE}oneOf`)
-const UPPER_CLASS = namedNode(`${UPPER_NAMESPACE}class`)
 
 export class UpperRepository {
   private store = new Store()
@@ -36,8 +36,113 @@ export class UpperRepository {
     this.store.addQuads(parser.parse(ttl))
   }
 
-  async serializeTurtle(): Promise<string> {
+  serializeTurtle(): string {
     return this.serialize()
+  }
+
+  updateLabel(id: string, value: string) {
+    const subject = namedNode(id)
+
+    const oldLabels = this.store.getQuads(subject, UPPER_LABEL, null, null)
+
+    this.store.removeQuads(oldLabels)
+
+    this.store.addQuad(subject, UPPER_LABEL, DataFactory.literal(value, 'en'))
+  }
+
+  addAttribute(
+    classId: string,
+    property: {
+      id: string
+      label: string
+      datatype: string
+    },
+  ) {
+    const classNode = namedNode(classId)
+    const propertyNode = namedNode(property.id)
+
+    this.store.addQuad(classNode, UPPER_PROPERTY, propertyNode)
+
+    this.store.addQuad(propertyNode, RDF_TYPE, UPPER_ATTRIBUTE)
+
+    this.store.addQuad(propertyNode, UPPER_LABEL, DataFactory.literal(property.label, 'en'))
+
+    this.store.addQuad(
+      propertyNode,
+      UPPER_DATATYPE,
+      namedNode(`http://www.w3.org/2001/XMLSchema#${property.datatype}`),
+    )
+  }
+
+  removeAttribute(classId: string, propertyId: string) {
+    const classNode = namedNode(classId)
+    const propertyNode = namedNode(propertyId)
+
+    // Remove class -> property relationship
+    this.store.removeQuad(classNode, UPPER_PROPERTY, propertyNode)
+
+    // Remove property metadata
+    this.store.removeQuad(propertyNode, RDF_TYPE, UPPER_ATTRIBUTE)
+    this.store.removeMatches(propertyNode, UPPER_LABEL, null)
+    this.store.removeMatches(propertyNode, UPPER_DATATYPE, null)
+  }
+
+  addRelationship(sourceId: string, targetId: string, label: string) {
+    const relationshipId = `${this.getDomainName()}#relationship-${Date.now()}`
+
+    const relationship = namedNode(relationshipId)
+
+    this.store.addQuads([
+      DataFactory.quad(relationship, RDF_TYPE, UPPER_RELATIONSHIP),
+
+      DataFactory.quad(relationship, UPPER_CLASS, namedNode(targetId)),
+
+      DataFactory.quad(relationship, UPPER_LABEL, DataFactory.literal(label, 'en')),
+
+      DataFactory.quad(namedNode(sourceId), UPPER_PROPERTY, relationship),
+    ])
+  }
+
+  removeRelationship(id: string) {
+    const relationship = namedNode(id)
+
+    const quads = this.store.getQuads(relationship, null, null, null)
+
+    this.store.removeQuads(quads)
+
+    const references = this.store.getQuads(null, UPPER_PROPERTY, relationship, null)
+
+    this.store.removeQuads(references)
+  }
+
+  updateDescription(id: string, value: string) {
+    const subject = namedNode(id)
+
+    const oldDescriptions = this.store.getQuads(subject, UPPER_DESCRIPTION, null, null)
+
+    this.store.removeQuads(oldDescriptions)
+
+    if (value) {
+      this.store.addQuad(subject, UPPER_DESCRIPTION, DataFactory.literal(value, 'en'))
+    }
+  }
+
+  updateDatatype(id: string, value: string) {
+    const subject = namedNode(id)
+
+    const oldDatatype = this.store.getQuads(subject, UPPER_DATATYPE, null, null)
+    this.store.removeQuads(oldDatatype)
+    if (value) {
+      this.store.addQuad(subject, UPPER_DATATYPE, DataFactory.literal(value))
+    }
+  }
+
+  addSchema(id: string, label: string) {
+    const subject = namedNode(`${UPPER_NAMESPACE}${id}`)
+
+    this.store.addQuad(subject, RDF_TYPE, UPPER_DIRECT_CLASS)
+
+    this.store.addQuad(subject, UPPER_LABEL, literal(label, 'en'))
   }
 
   private serialize(): string {
@@ -64,6 +169,34 @@ export class UpperRepository {
     lines.push(`@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .`)
     lines.push(`@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .`)
     lines.push(``)
+  }
+
+  removeSchema(id: string) {
+    const subject = namedNode(id)
+
+    // Remove properties owned by this class
+    const properties = this.store.getObjects(subject, UPPER_PROPERTY, null)
+
+    for (const property of properties) {
+      this.store.removeMatches(property, null, null, null)
+    }
+
+    // Remove references from this class to its properties
+    this.store.removeMatches(subject, UPPER_PROPERTY, null, null)
+
+    // Remove the class itself
+    this.store.removeMatches(subject, null, null, null)
+
+    // Remove relationships in other classes that target this class
+    const relationships = this.store.getSubjects(UPPER_CLASS, subject, null)
+
+    for (const relationship of relationships) {
+      // Remove relationship resource
+      this.store.removeMatches(relationship, null, null, null)
+
+      // Remove any class -> upper:property relationship
+      this.store.removeMatches(null, UPPER_PROPERTY, relationship, null)
+    }
   }
 
   private writeDomain(lines: string[]) {
@@ -115,7 +248,7 @@ export class UpperRepository {
 
         if (property.kind === 'attribute') {
           lines.push(`    a upper:Attribute ;`)
-          lines.push(`    upper:datatype xsd:${this.localName(property.datatype)} ;`)
+          lines.push(`    upper:datatype ${this.localName(property.datatype)} ;`)
         }
 
         if (property.kind === 'relationship') {
