@@ -11,6 +11,22 @@ declare module '@fkui/vue' {
   }
 }
 
+function handleGlobalClick(event: MouseEvent) {
+  const target = event.target as HTMLElement
+
+  // Don't deselect when clicking a Vue Flow node.
+  if (target.closest('.vue-flow__node')) {
+    return
+  }
+
+  // Don't deselect when clicking the details pane.
+  if (target.closest('.details-pane')) {
+    return
+  }
+
+  nodeStore.selectNode('')
+}
+
 registerLayout({
   name: 'app-layout',
   areas: {
@@ -48,7 +64,7 @@ registerLayout({
 </script>
 
 <template>
-  <f-page-layout layout="app-layout">
+  <f-page-layout layout="app-layout" @click="handleGlobalClick">
     <template #default="{ header, contextbar, toolbar, content, left, right }">
       <header :slot="header">
         <f-page-header>
@@ -70,6 +86,7 @@ registerLayout({
 
       <f-resize-pane
         :slot="right"
+        class="details-pane"
         min="200px 10%"
         max="40%"
         initial="200px"

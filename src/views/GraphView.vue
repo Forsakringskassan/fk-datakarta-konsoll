@@ -64,7 +64,7 @@ onNodeClick(({ node }) => {
 })
 
 onPaneClick(() => {
-  nodeStore.selectNode(null)
+  nodeStore.selectNode('')
 })
 
 async function onConnect(connection) {
